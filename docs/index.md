@@ -16,9 +16,11 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 ### List of available tags :
 
 **[Consent Management Platform]**
+
 - Axeptio
 
 **[Analytics]**
+
 - Google Analytics 4
 - Google Analytics 4 : Event
 - Hotjar
@@ -27,5 +29,7 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 <hr>  
 
 ### List of available variables :
+
 **[Custom variables]**
+
 - Click data-attribute
