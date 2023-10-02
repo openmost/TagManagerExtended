@@ -10,18 +10,5 @@ namespace Piwik\Plugins\TagManagerExtended;
 
 class TagManagerExtended extends \Piwik\Plugin
 {
-    public function registerEvents()
-    {
-        return [
-            'CronArchive.getArchivingAPIMethodForPlugin' => 'getArchivingAPIMethodForPlugin',
-        ];
-    }
 
-    // support archiving just this plugin via core:archive
-    public function getArchivingAPIMethodForPlugin(&$method, $plugin)
-    {
-        if ($plugin == 'TagManagerExtended') {
-            $method = 'TagManagerExtended.getExampleArchivedMetric';
-        }
-    }
 }

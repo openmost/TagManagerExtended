@@ -1,29 +1,31 @@
 {
-    "name": "TagManagerExtended",
-    "description": "Add a lots of tag to Matomo Tag Manager",
-    "version": "0.1.0",
-    "theme": false,
-    "require": {
-        "matomo": ">=4.15.1-stable,<5.0.0-b1"
-    },
-    "authors": [
-        {
-            "name": "Matomo",
-            "email": "",
-            "homepage": ""
-        }
-    ],
-    "support": {
-        "email": "",
-        "issues": "",
-        "forum": "",
-        "irc": "",
-        "wiki": "",
-        "source": "",
-        "docs": "",
-        "rss": ""
-    },
-    "homepage": "",
-    "license": "GPL v3+",
-    "keywords": []
+  "name": "TagManagerExtended",
+  "description": "Adds several useful tags to the Tag Manager",
+  "version": "4.0.0",
+  "theme": false,
+  "require": {
+    "matomo": ">=4.15.1-stable,<5.0.0-b1"
+  },
+  "authors": [
+    {
+      "name": "Openmost",
+      "email": "ronan@openmost.io",
+      "homepage": "https:\/\/openmost.io"
+    }
+  ],
+  "support": {
+    "email": "ronan@openmost.io",
+    "issues": "https:\/\/github.com\/openmost\/TagManagerExtended\/issues",
+    "source": "https:\/\/github.com\/openmost\/TagManagerExtended"
+  },
+  "homepage": "https:\/\/openmost.io\/products",
+  "license": "GPL v3+",
+  "keywords": [
+    "Tag",
+    "Manager",
+    "Extended",
+    "TagManager",
+    "Tags",
+    "Enhance"
+  ]
 }
