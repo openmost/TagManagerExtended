@@ -51,7 +51,7 @@ class GoogleAnalytics4EventTag extends BaseTag
         // return parent::getIcon();
         //
         // The image should have ideally a resolution of about 64x64 pixels.
-        return 'plugins/TagManagerExtended/images/icons/google-analytics-4.svg';
+        return 'plugins/TagManagerExtended/images/icons/tag/google-analytics-4.svg';
     }
 
     public function getParameters()

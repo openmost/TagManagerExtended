@@ -9,9 +9,11 @@ As a super user, enable the plugin via the "Settings > Plugins" section.
 
 ### 2 - Enjoy new Tags in the Tag Manager 
 
-This plugin adds several useful tags to the Tag Manager to let you deploy other solution in seconds.
+This plugin adds several useful tags, triggers and variables to the Tag Manager to let you deploy other solution in seconds.
 
-List of available tags : 
+<hr>  
+
+### List of available tags :
 
 **[Consent Management Platform]**
 - Axeptio
@@ -21,3 +23,9 @@ List of available tags :
 - Google Analytics 4 : Event
 - Hotjar
 - Microsoft Clarity
+
+<hr>  
+
+### List of available variables :
+**[Custom variables]**
+- Click data-attribute

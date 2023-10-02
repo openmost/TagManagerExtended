@@ -51,7 +51,7 @@ class MicrosoftClarityTag extends BaseTag
         // return parent::getIcon();
         //
         // The image should have ideally a resolution of about 64x64 pixels.
-        return 'plugins/TagManagerExtended/images/icons/microsoft-clarity.png';
+        return 'plugins/TagManagerExtended/images/icons/tag/microsoft-clarity.png';
     }
 
     public function getParameters()

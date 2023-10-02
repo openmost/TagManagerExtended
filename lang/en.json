@@ -29,6 +29,11 @@
         "AxeptioTagDescription": "Cookie widget and management of marketing consent",
         "AxeptioTagHelp": "",
         "AxeptioClientIdTitle": "Client Id",
-        "AxeptioClientIdDescription": "Find in Settings > Installation > Project Id"
+        "AxeptioClientIdDescription": "Find in Settings > Installation > Project Id",
+        "ClickDataAttributeVariableName": "Click data-attribute",
+        "ClickDataAttributeVariableDescription": "Gets the value from data- of the clicked element",
+        "ClickDataAttributeVariableHelp": "",
+        "ClickDataAttributeDataAttributeTitle": "data-attribute",
+        "ClickDataAttributeDataAttributeDescription": "Add only suffix, if the data attribute is data-demo just set \"demo\""
     }
 }

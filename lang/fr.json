@@ -29,6 +29,11 @@
     "AxeptioTagDescription": "Widget cookies et gestion du consentement marketing",
     "AxeptioTagHelp": "",
     "AxeptioClientIdTitle": "Client Id",
-    "AxeptioClientIdDescription": "Rechercher dans Paramètres > Installation > ID du projet"
+    "AxeptioClientIdDescription": "Rechercher dans Paramètres > Installation > ID du projet",
+    "ClickDataAttributeVariableName": "Clic data-attribute",
+    "ClickDataAttributeVariableDescription": "Obtient la valeur des données de l'élément cliqué",
+    "ClickDataAttributeVariableHelp": "",
+    "ClickDataAttributeDataAttributeTitle": "data-attribute",
+    "ClickDataAttributeDataAttributeDescription": "Ajoutez uniquement le suffixe, si l'attribut data est data-demo, définissez simplement \"demo\""
   }
 }

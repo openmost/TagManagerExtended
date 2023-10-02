@@ -5,25 +5,30 @@
  * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
-namespace Piwik\Plugins\TagManagerExtended\Template\Tag;
+namespace Piwik\Plugins\TagManagerExtended\Template\Variable;
 
 use Piwik\Piwik;
 use Piwik\Settings\FieldConfig;
-use Piwik\Plugins\TagManager\Template\Tag\BaseTag;
 use Piwik\Validators\NotEmpty;
+use Piwik\Plugins\TagManager\Template\Variable\BaseVariable;
 
-class GoogleAnalytics4Tag extends BaseTag
+class ClickDataAttributeVariable extends BaseVariable
 {
+    public function getCategory()
+    {
+        return self::CATEGORY_CLICKS;
+    }
+
     public function getName()
     {
-        // By default, the name will be automatically fetched from the TagManagerExtended_CustomHtmlTagName translation key.
+        // By default, the name will be automatically fetched from the TagManagerExtended_DataValueVariableName translation key.
         // you can either adjust/create/remove this translation key, or return a different value here directly.
         return parent::getName();
     }
 
     public function getDescription()
     {
-        // By default, the description will be automatically fetched from the TagManagerExtended_CustomHtmlTagDescription
+        // By default, the description will be automatically fetched from the TagManagerExtended_DataValueVariableDescription
         // translation key. you can either adjust/create/remove this translation key, or return a different value
         // here directly.
         return parent::getDescription();
@@ -31,14 +36,9 @@ class GoogleAnalytics4Tag extends BaseTag
 
     public function getHelp()
     {
-        // By default, the help will be automatically fetched from the TagManagerExtended_CustomHtmlTagHelp translation key.
+        // By default, the help will be automatically fetched from the TagManagerExtended_DataValueVariableHelp translation key.
         // you can either adjust/create/remove this translation key, or return a different value here directly.
         return parent::getHelp();
-    }
-
-    public function getCategory()
-    {
-        return self::CATEGORY_ANALYTICS;
     }
 
     public function getIcon()
@@ -47,22 +47,20 @@ class GoogleAnalytics4Tag extends BaseTag
         //
         // return 'plugins/TagManagerExtended/images/MyIcon.png';
         //
-        // to not return default icon call:
-        // return parent::getIcon();
-        //
         // The image should have ideally a resolution of about 64x64 pixels.
-        return 'plugins/TagManagerExtended/images/icons/tag/google-analytics-4.svg';
+        return 'plugins/TagManagerExtended/images/icons/variable/click.svg';
     }
 
     public function getParameters()
     {
         return array(
-            $this->makeSetting('measurementId', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
-                $field->title = Piwik::translate('TagManagerExtended_GoogleAnalytics4MeasurementIdTitle');
-                $field->description = Piwik::translate('TagManagerExtended_GoogleAnalytics4MeasurementIdDescription');
-                $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
+            $this->makeSetting('dataAttribute', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
+                $field->title = Piwik::translate('TagManagerExtended_ClickDataAttributeDataAttributeTitle');
+                $field->description = Piwik::translate('TagManagerExtended_ClickDataAttributeDataAttributeDescription');
+                $field->uiControl = FieldConfig::UI_CONTROL_TEXT;
                 $field->validators[] = new NotEmpty();
             }),
+
         );
     }
 

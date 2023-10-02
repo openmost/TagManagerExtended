@@ -51,7 +51,7 @@ class HotjarTag extends BaseTag
         // return parent::getIcon();
         //
         // The image should have ideally a resolution of about 64x64 pixels.
-        return 'plugins/TagManagerExtended/images/icons/hotjar.svg';
+        return 'plugins/TagManagerExtended/images/icons/tag/hotjar.svg';
     }
 
     public function getParameters()

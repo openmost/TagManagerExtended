@@ -52,7 +52,7 @@ class AxeptioTag extends BaseTag
         // return parent::getIcon();
         //
         // The image should have ideally a resolution of about 64x64 pixels.
-        return 'plugins/TagManagerExtended/images/icons/axeptio.svg';
+        return 'plugins/TagManagerExtended/images/icons/tag/axeptio.svg';
     }
 
     public function getParameters()
