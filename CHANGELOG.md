@@ -1,5 +1,8 @@
 ## Changelog
 
+### v4.0.3
+Fix Axeptio tag compatibility with Matomo Tag Manager
+
 ### v4.0.2
 Update doc for Markdown readers
 

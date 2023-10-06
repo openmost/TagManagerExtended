@@ -34,6 +34,6 @@
         "ClickDataAttributeVariableDescription": "Gets the value from data- of the clicked element.",
         "ClickDataAttributeVariableHelp": "",
         "ClickDataAttributeDataAttributeTitle": "data-attribute",
-        "ClickDataAttributeDataAttributeDescription": "Add only suffix, if the data attribute is data-demo just set \"demo\"."
+        "ClickDataAttributeDataAttributeDescription": "Only add suffix, if the data attribute is data-demo just set \"demo\"."
     }
 }
