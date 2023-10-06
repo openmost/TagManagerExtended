@@ -15,9 +15,15 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 
 ### List of available tags :
 
+**[Ads]**
+
+- Google Ads : Conversion
+
 **[Consent Management Platform]**
 
 - Axeptio
+- CookieYes
+- Cookiebot
 
 **[Analytics]**
 
@@ -25,6 +31,15 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 - Google Analytics 4 : Event
 - Hotjar
 - Microsoft Clarity
+
+**[Marketing]**
+
+- Brevo
+- Klaviyo
+
+**[Openmost]**
+
+- DataLayer Synchronization
 
 <hr>  
 

@@ -1,5 +1,17 @@
 ## Changelog
 
+### v4.1.0
+Add tags to Tag Manager
+
+- Google Ads : Conversion
+- CookieYes
+- Cookiebot
+- Brevo
+- Klaviyo
+- DataLayer Synchronisation
+
+Update Axeptio tag to send events to _mtm
+
 ### v4.0.3
 Fix Axeptio tag compatibility with Matomo Tag Manager
 

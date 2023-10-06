@@ -1,7 +1,7 @@
 {
   "name": "TagManagerExtended",
   "description": "Adds several useful tags, triggers and variables to the Tag Manager",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "theme": false,
   "require": {
     "matomo": ">=4.15.1-stable,<5.0.0-b1"
