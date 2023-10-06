@@ -1,5 +1,10 @@
 ## Changelog
 
+### v4.2.0
+Add tags to Tag Manager
+
+- Matomo Analytics : Ecommerce
+
 ### v4.1.0
 Add tags to Tag Manager
 

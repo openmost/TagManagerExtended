@@ -27,6 +27,7 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 
 **[Analytics]**
 
+- Matomo Analytics : Ecommerce
 - Google Analytics 4
 - Google Analytics 4 : Event
 - Hotjar
