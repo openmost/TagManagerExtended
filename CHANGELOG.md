@@ -1,5 +1,11 @@
 ## Changelog
 
+### v4.3.0
+Add tags to Tag Manager
+
+- Affilae
+- ListenLayer
+
 ### v4.2.0
 Add tags to Tag Manager
 

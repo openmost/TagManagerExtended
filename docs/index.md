@@ -19,11 +19,9 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 
 - Google Ads : Conversion
 
-**[Consent Management Platform]**
+**[Affiliates]**
 
-- Axeptio
-- CookieYes
-- Cookiebot
+- Affilae
 
 **[Analytics]**
 
@@ -33,7 +31,13 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 - Hotjar
 - Microsoft Clarity
 
-**[Marketing]**
+**[Consent Management Platform]**
+
+- Axeptio
+- CookieYes
+- Cookiebot
+
+**[Email]**
 
 - Brevo
 - Klaviyo

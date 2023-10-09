@@ -38,7 +38,7 @@ class BrevoTag extends BaseTag
 
     public function getCategory()
     {
-        return Piwik::translate('TagManagerExtended_Marketing');
+        return self::CATEGORY_EMAIL;
     }
 
     public function getIcon()

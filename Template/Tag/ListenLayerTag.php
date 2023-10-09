@@ -12,7 +12,7 @@ use Piwik\Settings\FieldConfig;
 use Piwik\Plugins\TagManager\Template\Tag\BaseTag;
 use Piwik\Validators\NotEmpty;
 
-class KlaviyoTag extends BaseTag
+class ListenLayerTag extends BaseTag
 {
     public function getName()
     {
@@ -38,7 +38,7 @@ class KlaviyoTag extends BaseTag
 
     public function getCategory()
     {
-        return self::CATEGORY_EMAIL;
+        return self::CATEGORY_ANALYTICS;
     }
 
     public function getIcon()
@@ -51,15 +51,15 @@ class KlaviyoTag extends BaseTag
         // return parent::getIcon();
         //
         // The image should have ideally a resolution of about 64x64 pixels.
-        return 'plugins/TagManagerExtended/images/icons/tag/klaviyo.svg';
+        return 'plugins/TagManagerExtended/images/icons/tag/listen-layer.svg';
     }
 
     public function getParameters()
     {
         return array(
-            $this->makeSetting('klaviyoCompanyId', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
-                $field->title = Piwik::translate('TagManagerExtended_KlaviyoTagCompanyIdTitle');
-                $field->description = Piwik::translate('TagManagerExtended_KlaviyoTagCompanyIdDescription');
+            $this->makeSetting('accountId', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
+                $field->title = Piwik::translate('TagManagerExtended_ListenLayerAccountIdTitle');
+                $field->description = Piwik::translate('TagManagerExtended_ListenLayerAccountIdDescription');
                 $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
                 $field->validators[] = new NotEmpty();
             }),
