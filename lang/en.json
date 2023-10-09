@@ -73,7 +73,7 @@
         "GoogleAdsConversionTagCurrencyTitle": "Currency code",
         "GoogleAdsConversionTagCurrencyDescription": "",
         "MatomoEcommerceTagName": "Matomo Analytics : Ecommerce",
-        "MatomoEcommerceTagDescription": "Get ecommerce data from you website.",
+        "MatomoEcommerceTagDescription": "Get ecommerce data from your website.",
         "MatomoEcommerceTagHelp": "",
         "MatomoEcommerceTrackingTypeTitle": "Tracking type",
         "MatomoEcommerceTrackingTypeDescription": "Select between view_item, view_item_list, update_cart and purchase.",
