@@ -34,6 +34,13 @@
     "ClickDataAttributeVariableDescription": "Obtient la valeur des données de l'élément cliqué",
     "ClickDataAttributeVariableHelp": "",
     "ClickDataAttributeDataAttributeTitle": "data-attribute",
-    "ClickDataAttributeDataAttributeDescription": "Ajoutez uniquement le suffixe, si l'attribut data est data-demo, définissez simplement \"demo\""
+    "ClickDataAttributeDataAttributeDescription": "Ajoutez uniquement le suffixe, si l'attribut data est data-demo, définissez simplement \"demo\"",
+    "SlackTagName": "Slack",
+    "SlackTagDescription": "Slack est une plateforme de communication collaborative propriétaire et un logiciel de gestion de projet",
+    "SlackTagHelp": "",
+    "SlackWebhookTitle": "Slack Webhook",
+    "SlackWebhookDescription": "Incoming Webhooks are a way to post messages from apps into Slack. Documentation : https://api.slack.com/messaging/webhooks",
+    "SlackMessageTitle": "Message",
+    "SlackMessageDescription": "Vous pouvez utiliser la syntaxe Markdown pour formater les messages."
   }
 }
