@@ -1,5 +1,9 @@
 ## Changelog
 
+### v4.3.6
+
+Fix languages files for Slack tag
+
 ### v4.3.5
 
 Add tags to Tag Manager

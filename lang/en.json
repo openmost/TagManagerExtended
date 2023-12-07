@@ -88,6 +88,18 @@
         "AffilaeTagDescription": "Affiliate, tracking and acquisition software.",
         "AffilaeTagHelp": "",
         "AffilaeProgramIdTitle": "Program ID",
-        "AffilaeProgramIdDescription": "Get your program Id from affilae.com."
+        "AffilaeProgramIdDescription": "Get your program Id from affilae.com.",
+        "ClickDataAttributeVariableName": "Click data-attribute",
+        "ClickDataAttributeVariableDescription": "Get value from click data-attribute",
+        "ClickDataAttributeVariableHelp": "",
+        "ClickDataAttributeDataAttributeTitle": "data-attribute",
+        "ClickDataAttributeDataAttributeDescription": "Only add suffix, if data attribute is data-demo just set \"demo\"",
+        "SlackTagName": "Slack",
+        "SlackTagDescription": "Slack is a proprietary collaborative communications platform and project management software",
+        "SlackTagHelp": "",
+        "SlackWebhookTitle": "Slack Webhook",
+        "SlackWebhookDescription": "Incoming Webhooks are a way to post messages from apps into Slack. Documentation : https://api.slack.com/messaging/webhooks",
+        "SlackMessageTitle": "Message",
+        "SlackMessageDescription": "You can use Markdown syntax to format messages."
     }
 }
