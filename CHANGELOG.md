@@ -1,5 +1,11 @@
 ## Changelog
 
+### v5.0.1
+
+Add tag to Tag Manager
+
+- Slack
+
 ### v5.0.0
 
 Support Matomo v5

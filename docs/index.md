@@ -46,6 +46,10 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 
 - DataLayer Synchronization
 
+**[Others]**
+
+- Slack
+
 <hr>  
 
 ### List of available variables :
