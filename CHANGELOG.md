@@ -1,5 +1,11 @@
 ## Changelog
 
+### v4.3.7
+
+Add tags to Tag Manager
+
+- OneTrust
+
 ### v4.3.6
 
 Fix languages files for Slack tag

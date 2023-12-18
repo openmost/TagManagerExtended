@@ -36,6 +36,7 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 - Axeptio
 - CookieYes
 - Cookiebot
+- OneTrust
 
 **[Email]**
 
