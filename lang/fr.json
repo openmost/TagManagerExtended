@@ -41,6 +41,11 @@
     "SlackWebhookTitle": "Slack Webhook",
     "SlackWebhookDescription": "Incoming Webhooks are a way to post messages from apps into Slack. Documentation : https://api.slack.com/messaging/webhooks",
     "SlackMessageTitle": "Message",
-    "SlackMessageDescription": "Vous pouvez utiliser la syntaxe Markdown pour formater les messages."
+    "SlackMessageDescription": "Vous pouvez utiliser la syntaxe Markdown pour formater les messages.",
+    "OneTrustTagName": "OneTrust",
+    "OneTrustTagDescription": "La plateforme Trust Intelligence de OneTrust connecte les équipes, les données et les processus afin que vous puissiez collaborer de manière transparente.",
+    "OneTrustTagHelp": "",
+    "OneTrustTagDomainTitle": "Domaine",
+    "OneTrustTagDomainDescription": "Entrez votre identifiant de domaine pour la partie data-domain-script du script."
   }
 }

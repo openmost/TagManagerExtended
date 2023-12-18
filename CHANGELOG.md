@@ -1,5 +1,11 @@
 ## Changelog
 
+### v5.0.2
+
+Add tag to Tag Manager
+
+- OneTrust
+
 ### v5.0.1
 
 Add tag to Tag Manager
