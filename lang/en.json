@@ -100,6 +100,21 @@
         "OneTrustTagDescription": "OneTrust's Trust Intelligence platform connects teams, data and processes so you can collaborate seamlessly.",
         "OneTrustTagHelp": "",
         "OneTrustTagDomainTitle": "Domain",
-        "OneTrustTagDomainDescription": "Enter your domain id to data-domain-script part of the script."
+        "OneTrustTagDomainDescription": "Enter your domain id to data-domain-script part of the script.",
+        "SimpleAnalyticsTagName": "Simple Analytics",
+        "SimpleAnalyticsTagDescription": "Simple Analytics is a simple Google Analytics alternative. One dashboard to instantly see how many visitors are coming to your website.",
+        "SimpleAnalyticsTagHelp": "",
+        "ConsoleTagName": "Console",
+        "ConsoleTagDescription": "Add information to the console.",
+        "ConsoleTagHelp": "",
+        "ConsoleTagTypeTitle": "Select the console method you want to use",
+        "ConsoleTagTypeDescription": "Methods are used to format content in the console.",
+        "ConsoleTagContentTitle": "Provide the content to display",
+        "ConsoleTagContentDescription": "This could be plain text or variables, objects and arrays are allowed.",
+        "AlertTagName": "Alert",
+        "AlertTagDescription": "Trigger an alert with informations.",
+        "AlertTagHelp": "",
+        "AlertTagContentTitle": "Content that would be displayed in the alert",
+        "AlertTagContentDescription": "Should be plain text or numbers."
     }
 }

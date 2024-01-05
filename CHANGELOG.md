@@ -1,5 +1,13 @@
 ## Changelog
 
+### v5.0.3
+
+Add tag to Tag Manager
+
+- Simple Analytics
+- Alert
+- Console
+
 ### v5.0.2
 
 Add tag to Tag Manager
