@@ -1,5 +1,15 @@
 ## Changelog
 
+### v5.0.4
+
+Add tag to Tag Manager
+
+- Google Tag
+
+Fix existing tag
+
+- Google Analytics 4 tag
+
 ### v5.0.3
 
 Add tag to Tag Manager

@@ -115,6 +115,11 @@
         "AlertTagDescription": "Trigger an alert with informations.",
         "AlertTagHelp": "",
         "AlertTagContentTitle": "Content that would be displayed in the alert",
-        "AlertTagContentDescription": "Should be plain text or numbers."
+        "AlertTagContentDescription": "Should be plain text or numbers.",
+        "GoogleTagTagName": "Google Tag",
+        "GoogleTagTagDescription": "The Google tag provides the Google products you use with data to measure the effectiveness of your website and ads.",
+        "GoogleTagTagHelp": "",
+        "GoogleTagTagIdTitle": "Tag ID",
+        "GoogleTagTagIdDescription": "A tag ID is an identifier that you put on your page to load a given Google tag."
     }
 }

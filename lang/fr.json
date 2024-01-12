@@ -61,6 +61,11 @@
     "AlertTagDescription": "Déclenchez une alerte sur votre navigateur.",
     "AlertTagHelp": "",
     "AlertTagContentTitle": "Contenu qui serait affiché dans l'alerte",
-    "AlertTagContentDescription": "Doit être du texte brut ou des chiffres."
+    "AlertTagContentDescription": "Doit être du texte brut ou des chiffres.",
+    "GoogleTagTagName": "Balise Google",
+    "GoogleTagTagDescription": "Balise universelle Google",
+    "GoogleTagTagHelp": "",
+    "GoogleTagTagIdTitle": "ID de balise",
+    "GoogleTagTagIdDescription": "A tag ID is an identifier that you place on your page to load a given Google tag."
   }
 }
