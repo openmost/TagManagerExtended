@@ -1,5 +1,14 @@
 ## Changelog
 
+### v4.3.8
+
+Add tags to Tag Manager
+
+- Simple Analytics
+- Alert
+- Console
+- Google Tag
+
 ### v4.3.7
 
 Add tags to Tag Manager

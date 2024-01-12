@@ -46,6 +46,26 @@
     "OneTrustTagDescription": "La plateforme Trust Intelligence de OneTrust connecte les équipes, les données et les processus afin que vous puissiez collaborer de manière transparente.",
     "OneTrustTagHelp": "",
     "OneTrustTagDomainTitle": "Domaine",
-    "OneTrustTagDomainDescription": "Entrez votre identifiant de domaine pour la partie data-domain-script du script."
+    "OneTrustTagDomainDescription": "Entrez votre identifiant de domaine pour la partie data-domain-script du script.",
+    "SimpleAnalyticsTagName": "Simple Analytics",
+    "SimpleAnalyticsTagDescription": "Simple Analytics est une alternative simple à Google Analytics. Un tableau de bord pour voir instantanément combien de visiteurs viennent sur votre site Web.",
+    "SimpleAnalyticsTagHelp": "",
+    "ConsoleTagName": "Console",
+    "ConsoleTagDescription": "Ajoutez des informations à la console",
+    "ConsoleTagHelp": "",
+    "ConsoleTagTypeTitle": "Sélectionnez la méthode de console que vous souhaitez utiliser",
+    "ConsoleTagTypeDescription": "Les méthodes sont utilisées pour formater le contenu dans la console.",
+    "ConsoleTagContentTitle": "Fournir le contenu à afficher",
+    "ConsoleTagContentDescription": "Il peut s'agir de texte brut ou de variables, objets et tableaux sont autorisés.",
+    "AlertTagName": "Alert",
+    "AlertTagDescription": "Déclenchez une alerte sur votre navigateur.",
+    "AlertTagHelp": "",
+    "AlertTagContentTitle": "Contenu qui serait affiché dans l'alerte",
+    "AlertTagContentDescription": "Doit être du texte brut ou des chiffres.",
+    "GoogleTagTagName": "Balise Google",
+    "GoogleTagTagDescription": "Balise universelle Google",
+    "GoogleTagTagHelp": "",
+    "GoogleTagTagIdTitle": "ID de balise",
+    "GoogleTagTagIdDescription": "A tag ID is an identifier that you place on your page to load a given Google tag."
   }
 }

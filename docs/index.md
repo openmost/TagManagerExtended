@@ -28,8 +28,10 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 - Matomo Analytics : Ecommerce
 - Google Analytics 4
 - Google Analytics 4 : Event
+- Google Tag
 - Hotjar
 - Microsoft Clarity
+- Simple Analytics
 
 **[Consent Management Platform]**
 
@@ -49,6 +51,8 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 
 **[Others]**
 
+- Alert
+- Console
 - Slack
 
 <hr>  
