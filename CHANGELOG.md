@@ -1,5 +1,11 @@
 ## Changelog
 
+### v5.0.5
+
+Update tags
+
+- GAds Conversion support transaction ID
+
 ### v5.0.4
 
 Add tag to Tag Manager

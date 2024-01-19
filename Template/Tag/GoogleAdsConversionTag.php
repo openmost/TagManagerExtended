@@ -73,14 +73,22 @@ class GoogleAdsConversionTag extends BaseTag
                 $field->validators[] = new NotEmpty();
             }),
 
-            $this->makeSetting('googleAdsConversionValue', '', FieldConfig::TYPE_FLOAT, function (FieldConfig $field) {
+            $this->makeSetting('googleAdsConversionValue', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
                 $field->title = Piwik::translate('TagManagerExtended_GoogleAdsConversionTagValueTitle');
                 $field->description = Piwik::translate('TagManagerExtended_GoogleAdsConversionTagValueDescription');
                 $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
                 //$field->validators[] = new NotEmpty();
             }),
 
-            $this->makeSetting('googleAdsConversionCurrency', 'EUR', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
+            $this->makeSetting('googleAdsConversionTransactionId', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
+                $field->title = Piwik::translate('TagManagerExtended_GoogleAdsConversionTagTransactionIdTitle');
+                $field->description = Piwik::translate('TagManagerExtended_GoogleAdsConversionTagTransactionIdDescription');
+                $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
+                //$field->validators[] = new NotEmpty();
+            }),
+
+
+            $this->makeSetting('googleAdsConversionCurrency', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
                 $field->title = Piwik::translate('TagManagerExtended_GoogleAdsConversionTagCurrencyTitle');
                 $field->description = Piwik::translate('TagManagerExtended_GoogleAdsConversionTagCurrencyDescription');
                 $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
