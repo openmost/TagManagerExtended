@@ -70,6 +70,8 @@
         "GoogleAdsConversionTagLabelDescription": "",
         "GoogleAdsConversionTagValueTitle": "Conversion value",
         "GoogleAdsConversionTagValueDescription": "",
+        "GoogleAdsConversionTagTransactionIdTitle": "Transaction ID",
+        "GoogleAdsConversionTagTransactionIdDescription": "Passing a dynamic transaction ID helps avoid double counting conversions.",
         "GoogleAdsConversionTagCurrencyTitle": "Currency code",
         "GoogleAdsConversionTagCurrencyDescription": "",
         "MatomoEcommerceTagName": "Matomo Analytics : Ecommerce",

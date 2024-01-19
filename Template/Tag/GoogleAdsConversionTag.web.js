@@ -1,20 +1,30 @@
 (function () {
-    return function (parameters, TagManager) {
-        this.fire = function () {
+  return function (parameters, TagManager) {
+    this.fire = function () {
 
-            var conversionId = parameters.get("googleAdsConversionId");
-            var conversionLabel = parameters.get("googleAdsConversionLabel");
-            var value = parameters.get("googleAdsConversionValue");
-            var currency = parameters.get("googleAdsConversionCurrency");
+      var conversionId = parameters.get("googleAdsConversionId");
+      var conversionLabel = parameters.get("googleAdsConversionLabel");
+      var value = parameters.get("googleAdsConversionValue");
+      var transactionId = parameters.get("googleAdsConversionTransactionId");
+      var currency = parameters.get("googleAdsConversionCurrency");
 
-            var sendTo = conversionId + "/" + conversionLabel;
+      var sendTo = conversionId + "/" + conversionLabel;
+      var conversionData = {"send_to": sendTo};
 
-            gtag("event", "conversion", {
-              "send_to": sendTo,
-              "value": value,
-              "currency": currency
-            });
+      if (value) {
+        conversionData.value = value;
+      }
 
-        };
+      if (transactionId) {
+        conversionData.transaction_id = transactionId;
+      }
+
+      if (currency) {
+        conversionData.currency = currency;
+      }
+
+      gtag("event", "conversion", conversionData);
+
     };
+  };
 })();
