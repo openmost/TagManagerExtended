@@ -8,7 +8,9 @@
       var transactionId = parameters.get("googleAdsConversionTransactionId");
       var currency = parameters.get("googleAdsConversionCurrency");
 
-      var sendTo = conversionId + "/" + conversionLabel;
+      var formattedConversionId = conversionId.includes("AW-") ? conversionId : "AW-" + conversionId;
+
+      var sendTo = formattedConversionId + "/" + conversionLabel;
       var conversionData = {"send_to": sendTo};
 
       if (value) {
