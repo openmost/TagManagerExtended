@@ -1,5 +1,11 @@
 ## Changelog
 
+### v5.0.6
+
+Update tags
+
+- GAds Conversion support with and without "AW-" syntax for conversion ID
+
 ### v5.0.5
 
 Update tags
