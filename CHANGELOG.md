@@ -1,5 +1,9 @@
 ## Changelog
 
+### v5.0.8
+
+Update documentation url
+
 ### v5.0.6
 
 Update tags
