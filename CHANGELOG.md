@@ -1,5 +1,10 @@
 ## Changelog
 
+## v5.2.2
+
+fix: Fixing conflict with core and custom tags name.
+Thanks to [@AltamashShaikh](https://github.com/AltamashShaikh)
+
 ## v5.2.1
 
 update: Tag differencitation from Core imported tags
