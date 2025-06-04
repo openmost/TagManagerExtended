@@ -16,6 +16,15 @@
     "MicrosoftClarityTagHelp": "",
     "MicrosoftClarityProjectId": "Id du projet",
     "MicrosoftClarityProjectIdDescription": "",
+    "MicrosoftConsentModeTagName": "Microsoft Consent Mode",
+    "MicrosoftConsentModeTagDescription": "Consent mode allows you to communicate to Microsoft the consent status of your users regarding cookies or application IDs.",
+    "MicrosoftConsentModeTagHelp": "",
+    "MicrosoftConsentModeTagConsentActionTitle": "Action de consentement",
+    "MicrosoftConsentModeTagConsentActionDescription": "Sélectionnez 'default' pour définir les valeurs par défaut et 'update' pour gérer le consentement des utilisateurs.",
+    "MicrosoftConsentModeTagConsentTypesTitle": "Types de consentement",
+    "MicrosoftConsentModeTagConsentTypesDescription": "L'état de consentement doit être 'denied' avant que l'utilisateur ne donne son consentement. Une fois le consentement reçu, vous pouvez déclencher cette balise avec le mode d'action défini sur 'update' et l'état de tous les consentements défini sur 'granted' pour tous les types de consentement. (Tous les types de consentement sont disponibles dans la documentation Google). L'état de consentement doit être 'denied' ou 'granted', aucune autre valeur n'est autorisée.",
+    "MicrosoftConsentModeTagConsentTypeTitle": "Type de consentement",
+    "MicrosoftConsentModeTagConsentStateTitle": "Etat du consentement",
     "GoogleAnalytics4TagName": "Google Analytics 4 (obsolète, utilisez 'Google Tag' à la place)",
     "GoogleAnalytics4TagDescription": "Outils et solutions d'analyse pour votre entreprise",
     "GoogleAnalytics4TagHelp": "",
@@ -163,6 +172,8 @@
     "GoogleConsentModeTagConsentTypesTitle": "Types de consentement",
     "GoogleConsentModeTagConsentTypesDescription": "L'état de consentement doit être 'denied' avant que l'utilisateur ne donne son consentement. Une fois le consentement reçu, vous pouvez déclencher cette balise avec le mode d'action défini sur 'update' et l'état de tous les consentements défini sur 'granted' pour tous les types de consentement. (Tous les types de consentement sont disponibles dans la documentation Google). L'état de consentement doit être 'denied' ou 'granted', aucune autre valeur n'est autorisée.",
     "GoogleConsentModeTagConsentTypeTitle": "Type de consentement",
-    "GoogleConsentModeTagConsentStateTitle": "Etat du consentement"
+    "GoogleConsentModeTagConsentStateTitle": "Etat du consentement",
+    "GoogleConsentModeTagWaitForUpdateTitle": "Wait for update",
+    "GoogleConsentModeTagWaitForUpdateDescription": "Valeur pour le paramètre wait_for_update."
   }
 }

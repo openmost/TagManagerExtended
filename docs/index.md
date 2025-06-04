@@ -34,6 +34,7 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 - Google User-Provided Data
 - Hotjar
 - Microsoft Clarity
+- Microsoft Consent Mode
 - Simple Analytics
 
 **[Consent Management Platform]**

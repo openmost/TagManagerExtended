@@ -1,5 +1,10 @@
 ## Changelog
 
+## v5.2.3
+
+update: Add wait_for_update parameter in Google Consent Mode v2
+add: Microsoft Consent Mode tag
+
 ## v5.2.2
 
 fix: Fixing conflict with core and custom tags name.

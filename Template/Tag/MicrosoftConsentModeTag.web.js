@@ -4,7 +4,6 @@
 
       var consentAction = parameters.get("consentAction")[0];
       var consentTypes = parameters.get("consentTypes");
-      var waitForUpdate = parameters.get("waitForUpdate");
 
       var typesObject = {};
       consentTypes.forEach(function (type) {
@@ -13,13 +12,8 @@
         }
       });
 
-      if(waitForUpdate){
-        typesObject.wait_for_update = waitForUpdate;
-      }
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      gtag("consent", consentAction, typesObject);
+      window.uetq = window.uetq || [];
+      window.uetq.push("consent", consentAction, typesObject);
 
     };
   };
