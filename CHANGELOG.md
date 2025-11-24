@@ -1,5 +1,10 @@
 ## Changelog
 
+## v5.3.0
+
+update: Input with variable design
+update: Move Add entity button a the top
+
 ## v5.2.3
 
 update: Add wait_for_update parameter in Google Consent Mode v2
