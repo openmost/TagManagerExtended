@@ -17,6 +17,7 @@ class TagManagerExtended extends \Piwik\Plugin
             'AssetManager.getJavaScriptFiles' => 'getJavaScriptFiles',
             'TagManager.filterTags' => 'filterTags',
             'TagManager.filterVariables' => 'filterVariables',
+            'TagManager.filterTriggers' => 'filterTriggers',
         );
     }
 
@@ -57,6 +58,21 @@ class TagManagerExtended extends \Piwik\Plugin
 
         if ($found) {
             $variables = array_values($variables);
+        }
+    }
+
+    public function filterTriggers(&$triggers)
+    {
+        $found = false;
+        foreach ($triggers as $key => &$trigger) {
+            if (in_array($trigger->getId(), ['CustomEvent']) && $this->isPartOfTagManagerPlugin($trigger)) {
+                $found = true;
+                unset($triggers[$key]);
+            }
+        }
+
+        if ($found) {
+            $triggers = array_values($triggers);
         }
     }
 

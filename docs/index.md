@@ -63,10 +63,43 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 - Console
 - Slack
 
-<hr>  
+<hr>
+
+### List of available triggers :
+
+**[Others]**
+
+- Custom Event (enhanced with regex support)
+- Custom Event Group
+
+**[User Engagement]**
+
+- Form Input
+
+<hr>
 
 ### List of available variables :
 
-**[Custom variables]**
+**[Page Variables]**
+
+- LocalStorage
+- SessionStorage
+
+**[Date]**
+
+- Date (custom format)
+
+**[Clicks]**
 
 - Click data-attribute
+
+**[Forms]**
+
+- Form Input - Value
+- Form Input - Name
+- Form Input - ID
+- Form Input - Type
+- Form Input - Element
+- Form Input - Checked
+- Form Input - Classes
+- Form Input - Selected Text

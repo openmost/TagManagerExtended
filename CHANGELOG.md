@@ -1,5 +1,30 @@
 ## Changelog
 
+## v5.4.0
+
+### New Triggers
+
+- **Custom Event** (enhanced): Added regex support with a "Use Regular Expression" checkbox option to match event names using patterns
+- **Custom Event Group**: Fires only when ALL specified custom events have been pushed to the data layer. Useful for multi-condition scenarios
+- **Form Input**: Fires when a form element (input, select, checkbox, radio, textarea) value changes. Supports "Change", "Input", or "Both" listen modes
+
+### New Variables
+
+- **LocalStorage**: Get a value from the browser's localStorage
+- **SessionStorage**: Get a value from the browser's sessionStorage
+- **Date**: Returns the current date/time in a custom format (PHP-style tokens: Y, m, d, H, i, s, etc.)
+
+### New Pre-configured Variables (Forms category)
+
+- **Form Input - Value**: Returns the value of the form element that triggered the Form Input event
+- **Form Input - Name**: Returns the name attribute of the form element
+- **Form Input - ID**: Returns the id attribute of the form element
+- **Form Input - Type**: Returns the type of the form element (text, email, checkbox, select, etc.)
+- **Form Input - Element**: Returns the DOM element that triggered the event
+- **Form Input - Checked**: Returns true/false for checkbox and radio elements
+- **Form Input - Classes**: Returns the CSS classes of the form element
+- **Form Input - Selected Text**: Returns the displayed text of the selected option (for select elements)
+
 ## v5.3.0
 
 update: Input with variable design
