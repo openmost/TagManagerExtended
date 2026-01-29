@@ -205,6 +205,12 @@
         "GoogleUserProvidedDataTagAddressPostalCodeTitle": "address.postal_code",
         "GoogleUserProvidedDataTagAddressPostalCodeDescription": "User post code. Example: 'SO99 9XX'",
         "GoogleUserProvidedDataTagAddressCountryTitle": "address.country",
-        "GoogleUserProvidedDataTagAddressCountryDescription": "User country code. Example: 'UK'. Use 2-letter country codes, per the ISO 3166-1 alpha-2 standard."
+        "GoogleUserProvidedDataTagAddressCountryDescription": "User country code. Example: 'UK'. Use 2-letter country codes, per the ISO 3166-1 alpha-2 standard.",
+        "RegexEventTriggerName": "Regex Event",
+        "RegexEventTriggerDescription": "Fires on custom events matching a regex pattern. Use .* to match all events.",
+        "RegexEventTriggerHelp": "This trigger fires when an event name matches your regex pattern. Use the built-in variable 'Event Name' in your tags to access the name of the event that triggered it.",
+        "RegexEventTriggerPatternTitle": "Event Name Pattern (Regex)",
+        "RegexEventTriggerPatternDescription": "Regular expression pattern to match event names. Use .* to match all events.",
+        "RegexEventTriggerPatternHelp": "Examples: .* (all events), ^form_ (events starting with 'form_'), click|submit (events containing 'click' or 'submit'), ^(purchase|checkout)$ (exactly 'purchase' or 'checkout')"
     }
 }
