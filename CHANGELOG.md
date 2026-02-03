@@ -1,5 +1,23 @@
 ## Changelog
 
+## v5.5.0
+
+### New Feature: Bulk Actions
+
+Manage multiple tags, triggers, and variables at once with the new bulk actions feature:
+
+- **Select multiple items**: Checkbox on each row to select individual items
+- **Select All**: Quick selection of all items in the list
+- **Bulk Delete**: Delete multiple tags, triggers, or variables at once
+- **Bulk Pause/Resume** (tags only): Pause or resume multiple tags simultaneously
+
+This feature is only available for users with write access to the container.
+
+### Improvements
+
+- Refactored LESS stylesheets into modular components for better maintainability
+- Added branding badge for TagManagerExtended items in the list
+
 ## v5.4.0
 
 ### New Triggers

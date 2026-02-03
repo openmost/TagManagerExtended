@@ -1,5 +1,17 @@
 {
     "TagManagerExtended": {
+        "BulkActions": "Bulk Actions",
+        "SelectAll": "Select All",
+        "DeselectAll": "Deselect All",
+        "Selected": "%s selected",
+        "BulkDelete": "Delete",
+        "BulkPause": "Pause",
+        "BulkResume": "Resume",
+        "ConfirmBulkDelete": "Are you sure you want to delete %s items?",
+        "ConfirmBulkPause": "Are you sure you want to pause %s tags?",
+        "ConfirmBulkResume": "Are you sure you want to resume %s tags?",
+        "BulkSuccess": "Successfully processed %s items.",
+        "BulkPartialSuccess": "Processed %s items successfully, %s failed.",
         "ConsentManagementPlatform": "Consent Management Platform",
         "Marketing": "Marketing",
         "Parameter": "Parameter",

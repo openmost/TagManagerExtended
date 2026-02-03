@@ -8,6 +8,12 @@ This plugin adds several useful tags, triggers, and variables to the Tag Manager
 
 ## Highlights
 
+### Bulk Actions (NEW)
+Manage multiple items at once:
+- Select multiple tags, triggers, or variables with checkboxes
+- **Bulk Delete**: Remove multiple items in one action
+- **Bulk Pause/Resume** (tags only): Pause or resume multiple tags simultaneously
+
 ### Tags (28+)
 Google Tag, Google Analytics 4, Google Ads Conversion, Google Consent Mode v2, Microsoft Clarity, Microsoft Consent Mode, Hotjar, Axeptio, CookieYes, Cookiebot, OneTrust, Intercom, Klaviyo, Brevo, and more...
 

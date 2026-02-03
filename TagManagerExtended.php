@@ -18,7 +18,24 @@ class TagManagerExtended extends \Piwik\Plugin
             'TagManager.filterTags' => 'filterTags',
             'TagManager.filterVariables' => 'filterVariables',
             'TagManager.filterTriggers' => 'filterTriggers',
+            'Translate.getClientSideTranslationKeys' => 'getClientSideTranslationKeys',
         );
+    }
+
+    public function getClientSideTranslationKeys(&$translationKeys)
+    {
+        $translationKeys[] = 'TagManagerExtended_BulkActions';
+        $translationKeys[] = 'TagManagerExtended_SelectAll';
+        $translationKeys[] = 'TagManagerExtended_DeselectAll';
+        $translationKeys[] = 'TagManagerExtended_Selected';
+        $translationKeys[] = 'TagManagerExtended_BulkDelete';
+        $translationKeys[] = 'TagManagerExtended_BulkPause';
+        $translationKeys[] = 'TagManagerExtended_BulkResume';
+        $translationKeys[] = 'TagManagerExtended_ConfirmBulkDelete';
+        $translationKeys[] = 'TagManagerExtended_ConfirmBulkPause';
+        $translationKeys[] = 'TagManagerExtended_ConfirmBulkResume';
+        $translationKeys[] = 'TagManagerExtended_BulkSuccess';
+        $translationKeys[] = 'TagManagerExtended_BulkPartialSuccess';
     }
 
     public function getStylesheetFiles(&$files)

@@ -1,0 +1,75 @@
+// Checkbox column for data tables
+.tme-checkbox-cell {
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  padding: 8px !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  overflow: hidden !important;
+
+  .tme-checkbox-label {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+    padding: 0 !important;
+
+    [type="checkbox"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      margin: 0;
+    }
+
+    span:not(.lever) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      padding: 0 !important;
+
+      // Unchecked box
+      &:before {
+        content: '';
+        position: absolute;
+        top: 3px !important;
+        left: 3px !important;
+        width: 16px;
+        height: 16px;
+        margin: 0 !important;
+      }
+
+      // Checkmark (hidden when unchecked)
+      &:after {
+        display: none;
+      }
+    }
+
+    // Checked state - checkmark
+    [type="checkbox"]:checked + span:not(.lever):before {
+      top: 0 !important;
+      left: 1px !important;
+      width: 10px;
+      height: 18px;
+    }
+  }
+}
+
+// Header checkbox cell
+thead .tme-checkbox-cell {
+  background: inherit;
+}
+
+// Selected row highlight
+tr.tme-selected {
+  background-color: #e3f2fd !important;
+
+  &:hover {
+    background-color: #bbdefb !important;
+  }
+}

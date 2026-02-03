@@ -1,0 +1,30 @@
+// TagManagerExtended branding badge
+.collection-item img[src*="TagManagerExtended"] {
+
+  & + .title {
+    position: relative;
+
+    &:after {
+      content: 'TagManagerExtended';
+      display: inline-block;
+      vertical-align: text-bottom;
+      margin-left: .5rem;
+      font-size: .5rem;
+      font-weight: 500;
+      color: #3450a3;
+      border: 1px solid #3450a3;
+      background-color: #e4eaff;
+      padding: 2px 6px;
+      border-radius: 1rem;
+      line-height: normal;
+    }
+
+    & + p {
+      &:after {
+        content: "Author: Openmost";
+        display: block;
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -1,146 +1,24 @@
-.tagmanager {
+// TagManagerExtended Styles
+// =========================
 
-  #customHtml {
-    height: auto !important;
-    min-height: 250px;
-    background-color: #23272e;
-    color: #fff;
-    font-family: monospace;
-    padding: 1rem;
-    border-radius: .5rem;
-    font-size: 0.875rem;
-    border-color: #23272e;
-    overflow-y: auto;
+// Import components
+@import "components/_bulk_actions.less";
+@import "components/_checkbox.less";
+@import "components/_editor.less";
+@import "components/_forms.less";
+@import "components/_branding.less";
+@import "components/_table_actions.less";
+@import "components/_triggers_chip.less";
 
-    &:focus {
-      border-color: #23272e;
-    }
+// Tag Manager List container
+.tagManagerManageList {
+  position: relative;
 
-    & + .icon-code {
-      margin-top: 0 !important;
-      padding: 8px !important;
-      margin-left: 6px !important;
-    }
-  }
-
-
-  .collection-item img[src*="TagManagerExtended"] {
-
-    & + .title {
-      position: relative;
-
-      &:after {
-        content: 'TagManagerExtended';
-        display: inline-block;
-        vertical-align: text-bottom;
-        margin-left: .5rem;
-        font-size: .5rem;
-        font-weight: 500;
-        color: #3450a3;
-        border: 1px solid #3450a3;
-        background-color: #e4eaff;
-        padding: 2px 6px;
-        border-radius: 1rem;
-        line-height: normal;
-      }
-
-      & + p {
-        &:after {
-          content: "Author: Openmost";
-          display: block;
-          font-weight: 500;
-        }
-      }
-    }
-  }
-
-  .fieldVariableTemplate {
-    box-sizing: border-box;
-    position: relative;
-
-    input.control_text {
-      box-sizing: border-box;
-      background-color: transparent;
-      margin-bottom: 0;
-      height: 2.5rem;
-      padding: 0 .75rem;
-      border: 1px solid #9e9e9e;
-      border-right: 0;
-      border-radius: 0.5rem 0 0 0.5rem;
-
-      &:focus {
-        border: 1px solid #43a047 !important;
-        box-shadow: none !important;
-      }
-
-      & + .icon-code {
-        height: 100%;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        padding-left: 11px;
-      }
-    }
-
-    br + label {
-      position: absolute;
-      left: 0 !important;
-      top: -20px;
-      font-size: 13px !important;
-    }
-
-    .icon-code {
-      box-sizing: border-box;
-      position: absolute;
-      background-color: #f0f0f0;
-      border: 1px solid #9e9e9e;
-      border-radius: 6px;
-      transition: .3s ease all;
-      padding: 12px;
-
-      &:hover {
-        color: #fff;
-        background-color: #212121;
-        border-color: #212121;
-      }
-    }
-  }
-
-  .fieldMultiTuple {
-
-    .multiPairFieldTable {
-      margin-top: 18px;
-    }
-
-    & > label {
-      display: block;
-      margin-bottom: .5rem;
-    }
-
-    .icon-minus {
-      margin-left: 8px;
-    }
-  }
-
-  [type=checkbox] + span:not(.lever) {
-    padding-left: 27px !important;
-  }
-
-  [type=checkbox] + span:not(.lever):before {
-    border-width: 1px !important;
-  }
-
-  .tagManagerManageList {
-    position: relative;
-
-
-    .tableActionBar {
-      padding-top: 20px;
-      padding-right: 20px;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+  .tableActionBar {
+    padding-top: 20px;
+    padding-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
-
-
