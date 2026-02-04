@@ -46,6 +46,44 @@ window.addEventListener('DOMContentLoaded', function () {
       this.observerStarted = false;
     }
 
+    /**
+     * Escape HTML entities to prevent XSS attacks
+     * @param {string} str - The string to escape
+     * @returns {string} The escaped string
+     */
+    escapeHtml(str) {
+      if (typeof str !== 'string') {
+        return '';
+      }
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    /**
+     * Validate and sanitize an ID to ensure it only contains safe characters
+     * @param {string} id - The ID to validate
+     * @returns {string|null} The sanitized ID or null if invalid
+     */
+    sanitizeId(id) {
+      if (typeof id !== 'string') {
+        return null;
+      }
+      // IDs should only contain alphanumeric characters, hyphens, and underscores
+      const sanitized = id.replace(/[^a-zA-Z0-9_-]/g, '');
+      return sanitized.length > 0 ? sanitized : null;
+    }
+
+    /**
+     * Validate entity type to ensure it's a known type
+     * @param {string} type - The entity type to validate
+     * @returns {string|null} The validated type or null if invalid
+     */
+    validateEntityType(type) {
+      const validTypes = ['tag', 'trigger', 'variable'];
+      return validTypes.includes(type) ? type : null;
+    }
+
     init() {
       const listContainer = document.querySelector('.tagManagerManageList');
       if (!listContainer) return;
@@ -164,9 +202,15 @@ window.addEventListener('DOMContentLoaded', function () {
       // Check if toolbar already exists
       if (container.querySelector('.tme-bulk-actions')) return;
 
+      // Validate entity type
+      const validatedType = this.validateEntityType(entityType);
+      if (!validatedType) return;
+
       const toolbar = document.createElement('div');
       toolbar.className = 'tme-bulk-actions';
-      toolbar.innerHTML = this.getToolbarHTML(entityType);
+
+      // Build toolbar using safe DOM methods instead of innerHTML
+      this.buildToolbarDOM(toolbar, validatedType);
 
       // Insert before the table
       const table = container.querySelector('table');
@@ -174,41 +218,79 @@ window.addEventListener('DOMContentLoaded', function () {
         table.parentNode.insertBefore(toolbar, table);
       }
 
-      this.attachToolbarEvents(toolbar, entityType);
+      this.attachToolbarEvents(toolbar, validatedType);
     }
 
-    getToolbarHTML(entityType) {
+    /**
+     * Build toolbar using safe DOM manipulation methods
+     * @param {HTMLElement} toolbar - The toolbar container element
+     * @param {string} entityType - The validated entity type
+     */
+    buildToolbarDOM(toolbar, entityType) {
       const translations = this.getTranslations();
-      let actionsHTML = `
-        <button class="btn btn-flat tme-bulk-btn tme-bulk-delete" disabled>
-          <span class="icon-delete"></span> ${translations.bulkDelete}
-        </button>
-      `;
 
-      // Only tags have pause/resume
+      // Create select controls container
+      const selectControls = document.createElement('div');
+      selectControls.className = 'tme-bulk-select-controls';
+
+      // Create select all label
+      const selectAllLabel = document.createElement('label');
+      selectAllLabel.className = 'tme-select-all-label';
+
+      const selectAllCheckbox = document.createElement('input');
+      selectAllCheckbox.type = 'checkbox';
+      selectAllCheckbox.className = 'tme-select-all';
+
+      const selectAllText = document.createElement('span');
+      selectAllText.textContent = translations.selectAll;
+
+      selectAllLabel.appendChild(selectAllCheckbox);
+      selectAllLabel.appendChild(selectAllText);
+
+      const selectionCount = document.createElement('span');
+      selectionCount.className = 'tme-selection-count';
+
+      selectControls.appendChild(selectAllLabel);
+      selectControls.appendChild(selectionCount);
+
+      // Create buttons container
+      const buttonsContainer = document.createElement('div');
+      buttonsContainer.className = 'tme-bulk-buttons';
+
+      // Only tags have pause/resume buttons
       if (entityType === 'tag') {
-        actionsHTML = `
-          <button class="btn btn-flat tme-bulk-btn tme-bulk-pause" disabled>
-            <span class="icon-pause"></span> ${translations.bulkPause}
-          </button>
-          <button class="btn btn-flat tme-bulk-btn tme-bulk-resume" disabled>
-            <span class="icon-play"></span> ${translations.bulkResume}
-          </button>
-        ` + actionsHTML;
+        const pauseBtn = this.createButton('tme-bulk-pause', 'icon-pause', translations.bulkPause);
+        const resumeBtn = this.createButton('tme-bulk-resume', 'icon-play', translations.bulkResume);
+        buttonsContainer.appendChild(pauseBtn);
+        buttonsContainer.appendChild(resumeBtn);
       }
 
-      return `
-        <div class="tme-bulk-select-controls">
-          <label class="tme-select-all-label">
-            <input type="checkbox" class="tme-select-all" />
-            <span>${translations.selectAll}</span>
-          </label>
-          <span class="tme-selection-count"></span>
-        </div>
-        <div class="tme-bulk-buttons">
-          ${actionsHTML}
-        </div>
-      `;
+      const deleteBtn = this.createButton('tme-bulk-delete', 'icon-delete', translations.bulkDelete);
+      buttonsContainer.appendChild(deleteBtn);
+
+      toolbar.appendChild(selectControls);
+      toolbar.appendChild(buttonsContainer);
+    }
+
+    /**
+     * Create a button element safely
+     * @param {string} className - The button class name
+     * @param {string} iconClass - The icon class name
+     * @param {string} text - The button text
+     * @returns {HTMLButtonElement} The created button
+     */
+    createButton(className, iconClass, text) {
+      const button = document.createElement('button');
+      button.className = `btn btn-flat tme-bulk-btn ${this.escapeHtml(className)}`;
+      button.disabled = true;
+
+      const icon = document.createElement('span');
+      icon.className = this.escapeHtml(iconClass);
+
+      button.appendChild(icon);
+      button.appendChild(document.createTextNode(' ' + text));
+
+      return button;
     }
 
     getTranslations() {
@@ -265,12 +347,17 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     injectCheckboxes(table, listConfig) {
+      // Validate entity type
+      const validatedType = this.validateEntityType(listConfig.type);
+      if (!validatedType) return;
+
       // Inject header checkbox cell
       const headerRow = table.querySelector('thead tr');
       if (headerRow && !headerRow.querySelector('.tme-checkbox-cell')) {
         const th = document.createElement('th');
         th.className = 'tme-checkbox-cell';
-        th.innerHTML = '';
+        // Use empty string with textContent (safer than innerHTML='')
+        th.textContent = '';
         headerRow.insertBefore(th, headerRow.firstChild);
       }
 
@@ -284,20 +371,35 @@ window.addEventListener('DOMContentLoaded', function () {
         // Skip loading or empty rows
         if (row.querySelector('.loadingPiwik') || row.querySelector('[colspan]')) return;
 
-        const id = this.extractIdFromRow(row, listConfig.idPrefix);
+        const rawId = this.extractIdFromRow(row, listConfig.idPrefix);
+        // Sanitize the ID to prevent XSS
+        const id = this.sanitizeId(rawId);
         if (!id) return;
 
+        // Build checkbox using safe DOM methods instead of innerHTML
         const td = document.createElement('td');
         td.className = 'tme-checkbox-cell';
-        td.innerHTML = `<label class="tme-checkbox-label">
-          <input type="checkbox" class="tme-row-checkbox" data-id="${id}" data-type="${listConfig.type}" />
-          <span></span>
-        </label>`;
+
+        const label = document.createElement('label');
+        label.className = 'tme-checkbox-label';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'tme-row-checkbox';
+        // Use dataset API which automatically escapes values
+        checkbox.dataset.id = id;
+        checkbox.dataset.type = validatedType;
+
+        const span = document.createElement('span');
+
+        label.appendChild(checkbox);
+        label.appendChild(span);
+        td.appendChild(label);
+
         row.insertBefore(td, row.firstChild);
 
-        const checkbox = td.querySelector('.tme-row-checkbox');
         checkbox.addEventListener('change', (e) => {
-          this.handleRowSelection(e.target, row, listConfig.type);
+          this.handleRowSelection(e.target, row, validatedType);
         });
       });
     }
@@ -311,34 +413,46 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     handleRowSelection(checkbox, row, entityType) {
-      const id = checkbox.dataset.id;
+      // Sanitize ID from dataset
+      const id = this.sanitizeId(checkbox.dataset.id);
+      const validatedType = this.validateEntityType(entityType);
+
+      if (!id || !validatedType) return;
+
       if (checkbox.checked) {
-        this.selectedItems.set(id, { id, type: entityType });
+        this.selectedItems.set(id, { id, type: validatedType });
         row.classList.add('tme-selected');
       } else {
         this.selectedItems.delete(id);
         row.classList.remove('tme-selected');
       }
-      this.updateToolbarState(entityType);
+      this.updateToolbarState(validatedType);
     }
 
     toggleSelectAll(checked, entityType) {
-      const container = this.getContainerForType(entityType);
+      const validatedType = this.validateEntityType(entityType);
+      if (!validatedType) return;
+
+      const container = this.getContainerForType(validatedType);
       if (!container) return;
 
       const checkboxes = container.querySelectorAll('.tme-row-checkbox');
       checkboxes.forEach(checkbox => {
+        // Sanitize ID from dataset
+        const id = this.sanitizeId(checkbox.dataset.id);
+        if (!id) return;
+
         checkbox.checked = checked;
         const row = checkbox.closest('tr');
         if (checked) {
-          this.selectedItems.set(checkbox.dataset.id, { id: checkbox.dataset.id, type: entityType });
+          this.selectedItems.set(id, { id, type: validatedType });
           row.classList.add('tme-selected');
         } else {
-          this.selectedItems.delete(checkbox.dataset.id);
+          this.selectedItems.delete(id);
           row.classList.remove('tme-selected');
         }
       });
-      this.updateToolbarState(entityType);
+      this.updateToolbarState(validatedType);
     }
 
     updateToolbarState(entityType) {
@@ -384,6 +498,14 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     async executeBulkAction(action, entityType) {
+      // Validate action
+      const validActions = ['delete', 'pause', 'resume'];
+      if (!validActions.includes(action)) return;
+
+      // Validate entity type
+      const validatedType = this.validateEntityType(entityType);
+      if (!validatedType) return;
+
       const count = this.selectedItems.size;
       if (count === 0) return;
 
@@ -392,20 +514,29 @@ window.addEventListener('DOMContentLoaded', function () {
 
       switch (action) {
         case 'delete':
-          confirmMessage = translations.confirmBulkDelete.replace('%s', count);
+          confirmMessage = translations.confirmBulkDelete.replace('%s', String(count));
           break;
         case 'pause':
-          confirmMessage = translations.confirmBulkPause.replace('%s', count);
+          confirmMessage = translations.confirmBulkPause.replace('%s', String(count));
           break;
         case 'resume':
-          confirmMessage = translations.confirmBulkResume.replace('%s', count);
+          confirmMessage = translations.confirmBulkResume.replace('%s', String(count));
           break;
       }
 
       const confirmed = confirm(confirmMessage);
       if (!confirmed) return;
 
-      const ids = Array.from(this.selectedItems.keys());
+      // Sanitize all IDs before sending to API
+      const ids = Array.from(this.selectedItems.keys())
+        .map(id => this.sanitizeId(id))
+        .filter(id => id !== null);
+
+      if (ids.length === 0) {
+        alert('No valid items selected');
+        return;
+      }
+
       const params = this.getContainerParams();
 
       if (!params) {
@@ -414,13 +545,60 @@ window.addEventListener('DOMContentLoaded', function () {
       }
 
       try {
-        const result = await this.callBulkApi(action, entityType, ids, params);
+        const result = await this.callBulkApi(action, validatedType, ids, params);
         this.handleBulkResult(result, translations);
-        this.clearSelection(entityType);
+        this.clearSelection(validatedType);
         this.reloadList();
       } catch (error) {
-        alert('Bulk action failed: ' + error.message);
+        // Sanitize error message before displaying
+        const safeMessage = this.escapeHtml(error.message || 'Unknown error');
+        alert('Bulk action failed: ' + safeMessage);
       }
+    }
+
+    /**
+     * Sanitize a site ID (must be numeric)
+     * @param {*} idSite - The site ID to sanitize
+     * @returns {string|null} The sanitized site ID or null if invalid
+     */
+    sanitizeSiteId(idSite) {
+      if (idSite === null || idSite === undefined) return null;
+      const str = String(idSite);
+      // Site IDs must be positive integers
+      if (/^\d+$/.test(str) && parseInt(str, 10) > 0) {
+        return str;
+      }
+      return null;
+    }
+
+    /**
+     * Sanitize a container ID (alphanumeric only)
+     * @param {*} idContainer - The container ID to sanitize
+     * @returns {string|null} The sanitized container ID or null if invalid
+     */
+    sanitizeContainerId(idContainer) {
+      if (idContainer === null || idContainer === undefined) return null;
+      const str = String(idContainer);
+      // Container IDs should be alphanumeric (typically 8 characters)
+      if (/^[a-zA-Z0-9]+$/.test(str) && str.length > 0 && str.length <= 32) {
+        return str;
+      }
+      return null;
+    }
+
+    /**
+     * Sanitize a container version ID (must be numeric)
+     * @param {*} idContainerVersion - The container version ID to sanitize
+     * @returns {string|null} The sanitized version ID or null if invalid
+     */
+    sanitizeContainerVersionId(idContainerVersion) {
+      if (idContainerVersion === null || idContainerVersion === undefined) return null;
+      const str = String(idContainerVersion);
+      // Version IDs must be positive integers
+      if (/^\d+$/.test(str) && parseInt(str, 10) > 0) {
+        return str;
+      }
+      return null;
     }
 
     getContainerParams() {
@@ -443,7 +621,7 @@ window.addEventListener('DOMContentLoaded', function () {
       // Method 3: Parse from hash URL
       if (!idContainer || !idContainerVersion) {
         const hash = window.location.hash;
-        const containerMatch = hash.match(/idContainer=([^&]+)/);
+        const containerMatch = hash.match(/idContainer=([a-zA-Z0-9]+)/);
         const versionMatch = hash.match(/idContainerVersion=(\d+)/);
 
         if (containerMatch) idContainer = containerMatch[1];
@@ -461,8 +639,8 @@ window.addEventListener('DOMContentLoaded', function () {
           const containerAttr = vueEntry.getAttribute('id-container');
           const versionAttr = vueEntry.getAttribute('id-container-version');
 
-          if (containerAttr && !idContainer) idContainer = containerAttr.replace(/['"&;]+/g, '').replace(/quot/g, '');
-          if (versionAttr && !idContainerVersion) idContainerVersion = versionAttr.replace(/['"&;]+/g, '').replace(/quot/g, '');
+          if (containerAttr && !idContainer) idContainer = containerAttr;
+          if (versionAttr && !idContainerVersion) idContainerVersion = versionAttr;
         }
       }
 
@@ -472,7 +650,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (const el of elementsWithVersion) {
           const ver = el.getAttribute('id-container-version') || el.getAttribute('data-id-container-version');
           if (ver) {
-            idContainerVersion = ver.replace(/['"&;]+/g, '').replace(/quot/g, '');
+            idContainerVersion = ver;
             break;
           }
         }
@@ -489,14 +667,35 @@ window.addEventListener('DOMContentLoaded', function () {
         idContainerVersion = '1';
       }
 
-      if (idSite && idContainer && idContainerVersion) {
-        return { idSite, idContainer, idContainerVersion };
+      // Sanitize all parameters before returning
+      const sanitizedSiteId = this.sanitizeSiteId(idSite);
+      const sanitizedContainerId = this.sanitizeContainerId(idContainer);
+      const sanitizedVersionId = this.sanitizeContainerVersionId(idContainerVersion);
+
+      if (sanitizedSiteId && sanitizedContainerId && sanitizedVersionId) {
+        return {
+          idSite: sanitizedSiteId,
+          idContainer: sanitizedContainerId,
+          idContainerVersion: sanitizedVersionId
+        };
       }
 
       return null;
     }
 
     async callBulkApi(action, entityType, ids, params) {
+      // Validate action
+      const validActions = ['delete', 'pause', 'resume'];
+      if (!validActions.includes(action)) {
+        throw new Error('Invalid action');
+      }
+
+      // Validate entity type
+      const validatedType = this.validateEntityType(entityType);
+      if (!validatedType) {
+        throw new Error('Invalid entity type');
+      }
+
       const methodMap = {
         tag: {
           delete: 'TagManagerExtended.bulkDeleteTags',
@@ -511,14 +710,26 @@ window.addEventListener('DOMContentLoaded', function () {
         }
       };
 
-      const method = methodMap[entityType]?.[action];
+      const method = methodMap[validatedType]?.[action];
       if (!method) {
-        throw new Error(`Invalid action ${action} for entity type ${entityType}`);
+        throw new Error('Invalid action for entity type');
       }
 
-      const idParamName = entityType === 'tag' ? 'idTags'
-        : entityType === 'trigger' ? 'idTriggers'
-        : 'idVariables';
+      const idParamNameMap = {
+        tag: 'idTags',
+        trigger: 'idTriggers',
+        variable: 'idVariables'
+      };
+      const idParamName = idParamNameMap[validatedType];
+
+      // Re-sanitize all IDs before sending
+      const sanitizedIds = ids
+        .map(id => this.sanitizeId(id))
+        .filter(id => id !== null);
+
+      if (sanitizedIds.length === 0) {
+        throw new Error('No valid IDs to process');
+      }
 
       // Use Matomo's global AJAX helper
       return new Promise((resolve, reject) => {
@@ -534,7 +745,7 @@ window.addEventListener('DOMContentLoaded', function () {
             format: 'json'
           }, 'get');
 
-          ids.forEach((id, index) => {
+          sanitizedIds.forEach((id, index) => {
             request.addParams({ [`${idParamName}[${index}]`]: id }, 'get');
           });
 
@@ -562,7 +773,7 @@ window.addEventListener('DOMContentLoaded', function () {
             format: 'json'
           });
 
-          ids.forEach(id => {
+          sanitizedIds.forEach(id => {
             urlParams.append(`${idParamName}[]`, id);
           });
 

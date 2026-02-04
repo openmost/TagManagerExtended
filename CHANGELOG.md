@@ -1,5 +1,9 @@
 ## Changelog
 
+## v5.5.1
+
+- Security fixes
+
 ## v5.5.0
 
 ### New Feature: Bulk Actions
