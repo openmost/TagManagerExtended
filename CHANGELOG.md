@@ -1,5 +1,9 @@
 ## Changelog
 
+## v5.6.0
+
+- Support native CSS variables for Matomo 5.10+
+
 ## v5.5.1
 
 - Security fixes
