@@ -1,5 +1,10 @@
 ## Changelog
 
+## v5.6.2
+
+- Fix: Color issue in Lightmode with buttons
+- Add: More screenshots
+
 ## v5.6.1
 
 ### Bug Fix
