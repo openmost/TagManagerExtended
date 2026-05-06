@@ -1,5 +1,6 @@
 {
   "TagManagerExtended": {
+    "MissingType": "Type indisponible (%s)",
     "ConsentManagementPlatform": "Plateforme de gestion du consentement",
     "Marketing": "Marketing",
     "Parameter": "Paramètre",

@@ -1,5 +1,12 @@
 ## Changelog
 
+## v5.6.1
+
+### Bug Fix
+
+- Fix Vue render crash on the Tag/Trigger/Variable list page when an entity references a type that is no longer available (plugin removed/disabled or built-in type filtered out). The list rendered nothing and the console showed `TypeError: Cannot read properties of null (reading 'description')`.
+- Orphan entities now render with a placeholder type label `Unavailable type (xxx)` so they remain visible and can still be edited or deleted.
+
 ## v5.6.0
 
 - Support native CSS variables for Matomo 5.10+

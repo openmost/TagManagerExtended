@@ -19,6 +19,70 @@ class TagManagerExtended extends \Piwik\Plugin
             'TagManager.filterVariables' => 'filterVariables',
             'TagManager.filterTriggers' => 'filterTriggers',
             'Translate.getClientSideTranslationKeys' => 'getClientSideTranslationKeys',
+            'API.TagManager.getContainerTags.end' => 'fillMissingTypeMetadata',
+            'API.TagManager.getContainerTag.end' => 'fillMissingTypeMetadata',
+            'API.TagManager.getContainerTriggers.end' => 'fillMissingTypeMetadata',
+            'API.TagManager.getContainerTrigger.end' => 'fillMissingTypeMetadata',
+            'API.TagManager.getContainerVariables.end' => 'fillMissingTypeMetadata',
+            'API.TagManager.getContainerVariable.end' => 'fillMissingTypeMetadata',
+        );
+    }
+
+    /**
+     * When an entity (tag, trigger, variable) references a type that is no longer
+     * registered (plugin removed/disabled, or a built-in type filtered out), the
+     * core sets typeMetadata to null. The Vue frontend then crashes while rendering
+     * the list because it reads typeMetadata.description / .name unguarded.
+     *
+     * Inject a minimal placeholder typeMetadata so the row renders gracefully and
+     * the user can still see, edit or delete the orphan entity.
+     */
+    public function fillMissingTypeMetadata(&$returnedValue, $extraInfo)
+    {
+        if (empty($returnedValue)) {
+            return;
+        }
+
+        if ($this->isEntityArray($returnedValue)) {
+            $this->ensureTypeMetadata($returnedValue);
+            return;
+        }
+
+        if (is_array($returnedValue)) {
+            foreach ($returnedValue as &$entity) {
+                if ($this->isEntityArray($entity)) {
+                    $this->ensureTypeMetadata($entity);
+                }
+            }
+        }
+    }
+
+    private function isEntityArray($value): bool
+    {
+        return is_array($value) && array_key_exists('typeMetadata', $value) && array_key_exists('type', $value);
+    }
+
+    private function ensureTypeMetadata(array &$entity): void
+    {
+        if (!empty($entity['typeMetadata'])) {
+            return;
+        }
+
+        $missingType = isset($entity['type']) ? (string) $entity['type'] : '';
+        $label = \Piwik\Piwik::translate('TagManagerExtended_MissingType', [$missingType !== '' ? $missingType : '?']);
+
+        $entity['typeMetadata'] = array(
+            'id' => $missingType,
+            'name' => $label,
+            'description' => $label,
+            'category' => '',
+            'icon' => '',
+            'help' => '',
+            'order' => 9999,
+            'contexts' => array(),
+            'hasAdvancedSettings' => false,
+            'isCustomTemplate' => false,
+            'parameters' => array(),
         );
     }
 

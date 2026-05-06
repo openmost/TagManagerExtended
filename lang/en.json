@@ -12,6 +12,7 @@
         "ConfirmBulkResume": "Are you sure you want to resume %s tags?",
         "BulkSuccess": "Successfully processed %s items.",
         "BulkPartialSuccess": "Processed %s items successfully, %s failed.",
+        "MissingType": "Unavailable type (%s)",
         "ConsentManagementPlatform": "Consent Management Platform",
         "Marketing": "Marketing",
         "Parameter": "Parameter",
