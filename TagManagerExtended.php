@@ -116,7 +116,7 @@ class TagManagerExtended extends \Piwik\Plugin
     {
         $found = false;
         foreach ($tags as $key => &$tag) {
-            if (in_array($tag->getId(), ['Axeptio', 'CookieYes', 'Cookiebot', 'OneTrust', 'Hotjar', 'GoogleAdsConversion', 'GoogleAnalytics4Event', 'GoogleTag']) && $this->isPartOfTagManagerPlugin($tag)) {
+            if (in_array($tag->getId(), ['Axeptio', 'CookieYes', 'Cookiebot', 'OneTrust', 'Hotjar', 'GoogleAdsConversion', 'GoogleAnalytics4Event', 'GoogleTag', 'GoogleConsentModeV2']) && $this->isPartOfTagManagerPlugin($tag)) {
                 $found = true;
                 unset($tags[$key]);
             }
