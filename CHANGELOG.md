@@ -1,5 +1,36 @@
 ## Changelog
 
+## v5.7.0
+
+### New Feature: Marketing & Advertising pixels
+
+Eleven new tag templates for the major advertising and marketing platforms. Each social/ads pixel is a **complete tag** that loads the base library, initialises the pixel and sends the selected event (page view by default, then standard conversion events or a custom event). All snippets and event APIs were verified against the official platform documentation.
+
+**[Social]**
+
+- **Meta Pixel** — loads the pixel, `PageView` + the 17 standard events + custom events (`trackCustom`), with optional `eventID` for Conversions API (CAPI) deduplication.
+- **TikTok Pixel** — `ttq.load`/`ttq.page` + current standard events (Purchase, AddToCart, CompleteRegistration…) + custom events, with optional `event_id` (Events API deduplication).
+- **Pinterest Tag** — `pintrk` load/page + conversion events + custom events, with optional `event_id` (sent inside the event data, as required by Pinterest).
+- **Snapchat Pixel** — `snaptr` init (with optional advanced-matching email) + standard events + the official `CUSTOM_EVENT_1…5` slots.
+- **X (Twitter) Pixel** — current `twq('config')` + `twq('event', <event id>)` API (base page tracking handled automatically by config).
+- **Reddit Pixel** — `rdt` init + standard events + custom events (`Custom` with `customEventName`).
+
+**[Ads]**
+
+- **Microsoft Ads : Conversion** — pushes a UET conversion event (action, category, label, event value, revenue value, currency, custom parameters). Requires the base Microsoft Advertising (Bing UET) tag.
+- **LinkedIn Ads : Conversion** — fires a LinkedIn conversion (`lintrk('track', { conversion_id })`), with optional loading of the Insight Tag when the partner ID is provided.
+
+**[Remarketing]**
+
+- **Criteo OneTag** — dynamic loader + `viewHome`/`viewList`/`viewItem`/`viewBasket`/`trackTransaction` events, with optional email matching.
+- **Crisp** — loads the Crisp live chat / chatbot widget, with optional visitor email and name pre-fill.
+
+**[Others]**
+
+- **HubSpot** — loads the HubSpot tracking code (NA/EU data centre), with optional visitor identification by email and custom behavioral events.
+
+All new tags integrate with Matomo variables (`{{...}}`) on every field and are fully translated in English and French.
+
 ## v5.6.2
 
 - Fix: Color issue in Lightmode with buttons

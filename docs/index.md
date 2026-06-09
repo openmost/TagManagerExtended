@@ -18,6 +18,8 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 **[Ads]**
 
 - Google Ads : Conversion
+- LinkedIn Ads : Conversion
+- Microsoft Ads : Conversion
 
 **[Affiliates]**
 
@@ -55,12 +57,24 @@ This plugin adds several useful tags, triggers and variables to the Tag Manager 
 
 **[Remarketing]**
 
+- Criteo OneTag
+- Crisp
 - Intercom
+
+**[Social]**
+
+- Meta Pixel
+- Pinterest Tag
+- Reddit Pixel
+- Snapchat Pixel
+- TikTok Pixel
+- X (Twitter) Pixel
 
 **[Others]**
 
 - Alert
 - Console
+- HubSpot
 - Slack
 
 <hr>
