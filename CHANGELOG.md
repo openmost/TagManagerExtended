@@ -1,5 +1,13 @@
 ## Changelog
 
+## v5.7.1
+
+### Improvements
+
+- Matomo Ecommerce and Matomo Search tags now use a crisp SVG icon, and the OneTrust icon was refreshed.
+- The base "Google Consent Mode v2" tag is now hidden in favour of the extended version, and the Microsoft Consent Mode tag is grouped under the standard "Consent Management" category.
+- Restyled the TagManagerExtended branding badge to follow the active Matomo theme colors (transparent background) and removed the author label.
+
 ## v5.7.0
 
 ### New Feature: Marketing & Advertising pixels
