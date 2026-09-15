@@ -1,5 +1,11 @@
 ## Changelog
 
+## v6.0.1
+
+### Improvements
+
+- Update the plugin homepage to https://openmost.com/matomo/extensions/tag-manager-extended
+
 ## v6.0.0
 
 ### Matomo 6
