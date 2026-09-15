@@ -1,5 +1,24 @@
 ## Changelog
 
+## v6.0.0
+
+### Matomo 6
+
+- Compatibility with Matomo 6.x (`>=6.0.0-b1,<7.0.0-b1`), requires PHP 8.1+.
+
+### Improvements
+
+- The Custom HTML tag now has a code editor with HTML, JavaScript and CSS syntax highlighting, line numbers and auto-closing tags. The variable picker still inserts at the cursor position.
+- Syntax errors in the `<script>` blocks of Custom HTML tags (JavaScript and JSON-LD) are highlighted while typing. Matomo variables (`{{...}}`) are supported, saving is not blocked.
+- Bulk actions rebuilt as a Vue component using the Matomo UI: confirmation dialog and notifications instead of browser alerts.
+- Bulk action buttons and selected rows now follow the active theme (dark mode).
+- French translations for bulk actions.
+
+### Technical
+
+- Replace the Laravel Mix (webpack) build with the Matomo Vite build (`vue/`).
+- The plugin Vue library is only loaded on Tag Manager pages.
+
 ## v5.7.1
 
 ### Improvements

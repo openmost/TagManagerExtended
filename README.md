@@ -6,6 +6,17 @@
 
 Stop copy-pasting fragile snippets. Stop juggling Google Tag Manager just for one pixel. Everything your marketing, ads and analytics stack needs is now one click away, **privacy-friendly and self-hosted inside Matomo**.
 
+### ✨ NEW — Syntax highlighting & JavaScript syntax validator for Custom HTML
+
+**Your most requested feature is here!** Custom HTML tags now come with a real code editor, so you catch mistakes before they reach your website:
+
+- 🎨 **Syntax highlighting** for HTML, JavaScript and CSS
+- 🛡️ **Live JavaScript syntax validator** — errors are underlined as you type, with a clear message. No more broken tags discovered in production!
+- 🧾 **JSON-LD validation** for your structured data
+- 🟢 **"Valid syntax" / "Code may contain errors" indicator** right next to the field — click it to list the errors
+- 🧩 Matomo **variables (`{{...}}`)** fully supported, and still inserted at the cursor position
+- ⌨️ Line numbers, auto-indentation, auto-closing tags and autocompletion
+
 ### 🚀 Every marketing & ads pixel, ready in seconds
 
 The big advertising and marketing platforms, as **complete, plug-and-play tags**. Each one loads the base pixel, fires the page view, and lets you send standard conversion events (or your own custom events) — with `event_id` support for **Conversions API (server-side) deduplication** where the platform allows it.

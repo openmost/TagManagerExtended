@@ -403,6 +403,11 @@
         "FormInputClassesVariableName": "Form Input - Classes",
         "FormInputClassesVariableDescription": "Returns the CSS classes of the form element.",
         "FormInputSelectedTextVariableName": "Form Input - Selected Text",
-        "FormInputSelectedTextVariableDescription": "Returns the displayed text of the selected option (for select elements)."
+        "FormInputSelectedTextVariableDescription": "Returns the displayed text of the selected option (for select elements).",
+        "BulkMissingContainer": "Could not determine the container of the selected items.",
+        "JavaScriptSyntaxError": "JavaScript syntax error: %s",
+        "JsonSyntaxError": "Invalid JSON: %s",
+        "SyntaxValid": "Valid syntax",
+        "SyntaxMayContainErrors": "Code may contain errors"
     }
 }

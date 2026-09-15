@@ -1,23 +1,90 @@
-// Custom HTML editor styles
-#customHtml {
-  height: auto !important;
-  min-height: 250px;
-  background-color: #23272e;
-  color: #fff;
-  font-family: monospace;
-  padding: 1rem;
-  border-radius: .5rem;
-  font-size: 0.875rem;
-  border-color: #23272e;
-  overflow-y: auto;
+// Custom HTML code editor (CodeMirror, see vue/src/CodeEditor/codeEditor.ts)
+.tme-code-editor-source {
+  display: none !important;
+}
 
-  &:focus {
-    border-color: #23272e;
+// the materialize field wrapper top margin pushes the editor below the field description
+.input-field:has(.tme-code-editor) {
+  margin-top: 0;
+}
+
+.fieldVariableTemplate .tme-code-editor {
+  width: calc(100% - 40px);
+  min-height: 250px;
+  max-height: 600px;
+  border-radius: .5rem;
+  overflow: hidden;
+  font-size: .875rem;
+
+  .cm-scroller {
+    min-height: 250px;
+    font-family: monospace;
   }
 
-  & + .icon-code {
-    margin-top: 0 !important;
+  &.cm-focused {
+    outline: 2px solid @theme-color-brand;
+  }
+
+  // variable picker button: top right of the editor, in the 40px column left free
+  & ~ .icon-code {
+    top: 0;
+    right: 0;
+    left: auto;
+    margin: 0 !important;
     padding: 8px !important;
-    margin-left: 6px !important;
+  }
+
+  & ~ label {
+    top: 0;
+    margin-top: .5rem;
+  }
+}
+
+// syntax status displayed next to the field label
+.fieldVariableTemplate .tme-code-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: .5rem;
+  margin-left: .75rem;
+  font-size: .8rem;
+  font-weight: 500;
+  vertical-align: top;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.tme-code-status--valid {
+    color: @theme-color-success;
+  }
+
+  &.tme-code-status--invalid {
+    color: @theme-color-base-series;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.fieldVariableTemplate .tme-code-editor ~ label {
+  display: inline-block;
+}
+
+// flat lint markers in the gutter, instead of the default gradient icons
+.fieldVariableTemplate .tme-code-editor {
+  .cm-lint-marker {
+    content: normal;
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 5px auto 0;
+    border-radius: 50%;
+  }
+
+  .cm-lint-marker-error {
+    background-color: @theme-color-base-series;
   }
 }

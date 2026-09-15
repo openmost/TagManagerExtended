@@ -1,10 +1,10 @@
 {
     "name": "TagManagerExtended",
-    "description": "Adds several useful tags, triggers and variables to the Tag Manager",
-    "version": "5.7.1",
+    "description": "More tags, triggers and variables for the Tag Manager, plus a Custom HTML code editor with syntax highlighting and JavaScript validation",
+    "version": "6.0.0",
     "theme": false,
     "require": {
-        "matomo": ">=5.10.0,<6.0.0-b1"
+      "matomo": ">=6.0.0-b1,<7.0.0-b1"
     },
     "authors": [
         {
@@ -29,7 +29,11 @@
         "Enhance",
         "Consent",
         "Mode",
-        "CMP"
+        "CMP",
+        "Custom HTML",
+        "Code editor",
+        "Syntax highlighting",
+        "JavaScript validator"
     ],
     "category": "insights"
 }

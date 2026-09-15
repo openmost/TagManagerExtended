@@ -360,6 +360,23 @@
     "FormInputClassesVariableName": "Form Input - Classes",
     "FormInputClassesVariableDescription": "Retourne les classes CSS de l'élément de formulaire.",
     "FormInputSelectedTextVariableName": "Form Input - Texte sélectionné",
-    "FormInputSelectedTextVariableDescription": "Retourne le texte affiché de l'option sélectionnée (pour les éléments select)."
+    "FormInputSelectedTextVariableDescription": "Retourne le texte affiché de l'option sélectionnée (pour les éléments select).",
+    "BulkActions": "Actions groupées",
+    "SelectAll": "Tout sélectionner",
+    "DeselectAll": "Tout désélectionner",
+    "Selected": "%s sélectionné(s)",
+    "BulkDelete": "Supprimer",
+    "BulkPause": "Mettre en pause",
+    "BulkResume": "Reprendre",
+    "ConfirmBulkDelete": "Voulez-vous vraiment supprimer %s éléments ?",
+    "ConfirmBulkPause": "Voulez-vous vraiment mettre en pause %s balises ?",
+    "ConfirmBulkResume": "Voulez-vous vraiment reprendre %s balises ?",
+    "BulkSuccess": "%s éléments traités avec succès.",
+    "BulkPartialSuccess": "%s éléments traités avec succès, %s en échec.",
+    "BulkMissingContainer": "Impossible de déterminer le conteneur des éléments sélectionnés.",
+    "JavaScriptSyntaxError": "Erreur de syntaxe JavaScript : %s",
+    "JsonSyntaxError": "JSON invalide : %s",
+    "SyntaxValid": "Syntaxe valide",
+    "SyntaxMayContainErrors": "Le code peut contenir des erreurs"
   }
 }

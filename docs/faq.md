@@ -29,3 +29,15 @@ This label appears when an entity in your container references a type that is no
 - a custom template has been deleted.
 
 Without this fallback the Tag Manager list page would not render at all (Vue would crash with `Cannot read properties of null (reading 'description')`). The placeholder lets you keep the entity visible so you can edit it to use a still-available type, or delete it.
+
+__What does "Code may contain errors" mean in the Custom HTML tag ?__
+
+The Custom HTML editor checks the syntax of your `<script>` blocks (JavaScript and JSON-LD) while you type. When an error is found, it is underlined in the code and a red marker is displayed in the margin: hover it to read the message, or click on "Code may contain errors" to list all the errors. Fix them and the indicator switches to "Valid syntax".
+
+__Can I use Matomo variables in my JavaScript code ?__
+
+Yes. Variables such as `{{PageUrl}}` are replaced by their value when the tag is executed, so the validator ignores them and does not report them as errors.
+
+__Does the validator prevent me from saving my tag ?__
+
+No. The validator only helps you spot syntax errors, you can always save your tag. Only the syntax is checked: a valid code can still fail at runtime (for example when an external library is not loaded).

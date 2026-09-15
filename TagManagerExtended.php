@@ -100,6 +100,13 @@ class TagManagerExtended extends \Piwik\Plugin
         $translationKeys[] = 'TagManagerExtended_ConfirmBulkResume';
         $translationKeys[] = 'TagManagerExtended_BulkSuccess';
         $translationKeys[] = 'TagManagerExtended_BulkPartialSuccess';
+        $translationKeys[] = 'TagManagerExtended_BulkMissingContainer';
+        $translationKeys[] = 'TagManagerExtended_JavaScriptSyntaxError';
+        $translationKeys[] = 'TagManagerExtended_JsonSyntaxError';
+        $translationKeys[] = 'TagManagerExtended_SyntaxValid';
+        $translationKeys[] = 'TagManagerExtended_SyntaxMayContainErrors';
+        $translationKeys[] = 'General_Yes';
+        $translationKeys[] = 'General_No';
     }
 
     public function getStylesheetFiles(&$files)
@@ -109,7 +116,14 @@ class TagManagerExtended extends \Piwik\Plugin
 
     public function getJavaScriptFiles(&$files)
     {
-        $files[] = "plugins/TagManagerExtended/javascripts/script.js";
+        // Loads the Vue UMD (bulk actions, code editor) on Tag Manager pages only
+        $files[] = "plugins/TagManagerExtended/javascripts/loader.js";
+    }
+
+    public function shouldLoadUmdOnDemand()
+    {
+        // The UMD bundles the code editor, keep it out of the global Matomo assets
+        return true;
     }
 
     public function filterTags(&$tags)

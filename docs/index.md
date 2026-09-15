@@ -11,6 +11,18 @@ As a super user, enable the plugin via the "Settings > Plugins" section.
 
 This plugin adds several useful tags, triggers and variables to the Tag Manager to let you deploy other solution in seconds.
 
+### 3 - Write Custom HTML with syntax highlighting and a JavaScript validator
+
+The **Custom HTML** tag comes with a real code editor:
+
+- **Syntax highlighting** for HTML, JavaScript and CSS, with line numbers, auto-indentation, auto-closing tags and autocompletion.
+- **JavaScript syntax validator**: the code of your `<script>` blocks is checked while you type. Errors are underlined in the editor and marked in the margin, hover them to read the message.
+- **JSON-LD validation**: `<script type="application/ld+json">` blocks are checked too.
+- A **"Valid syntax" / "Code may contain errors"** indicator is displayed next to the field. Click it to open the list of errors.
+- Matomo **variables** (`{{PageUrl}}`...) are supported by the validator, and the variable picker inserts them at the cursor position.
+
+The validator only reports syntax errors and never prevents you from saving your tag.
+
 <hr>  
 
 ### List of available tags :
