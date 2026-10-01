@@ -4,3 +4,4 @@ node_modules
 /vue/dist/*.common.js
 /vue/dist/*.map
 /vue/dist/*.development.*
+mix-manifest.json

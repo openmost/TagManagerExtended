@@ -8,6 +8,7 @@
 - Syntax errors in the `<script>` blocks of Custom HTML tags (JavaScript and JSON-LD) are highlighted while typing. Matomo variables (`{{...}}`) are supported, saving is not blocked.
 - Interface translated into 12 languages.
 - Help texts added for 29 tag and variable templates (shown on the template icon) and for the Google Ads conversion and Microsoft Clarity fields, in all 12 languages.
+- The package no longer ships the Laravel Mix manifest (mix-manifest.json), which Matomo does not use.
 
 ### Technical
 
