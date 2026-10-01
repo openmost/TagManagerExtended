@@ -6,6 +6,9 @@
  */
 
 import { parse } from 'acorn';
+import { EditorState } from '@codemirror/state';
+import { ensureSyntaxTree } from '@codemirror/language';
+import { html } from '@codemirror/lang-html';
 import { Diagnostic, linter } from '@codemirror/lint';
 import { EditorView } from '@codemirror/view';
 import { translate } from 'CoreHome';
@@ -13,11 +16,15 @@ import { translate } from 'CoreHome';
 // Syntax check of the <script> blocks of a Custom HTML tag: JavaScript with acorn, JSON
 // (eg JSON-LD) with JSON.parse. Only syntax errors are reported, in the editor: saving is not
 // blocked.
+//
+// <script> elements are located with the HTML syntax tree, not with regular expressions: a tag
+// written in a comment, a string or a stylesheet is not an element, and an attribute value may
+// contain ">".
 
-const SCRIPT_PATTERN = /<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi;
-const TYPE_ATTRIBUTE_PATTERN = /\btype\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i;
 const VARIABLE_PATTERN = /\{\{[^{}\n]+\}\}/g;
 const JSON_POSITION_PATTERN = /position (\d+)/;
+const QUOTES_PATTERN = /^(["'])([\s\S]*)\1$/;
+const RAW_TEXT_CLOSING_TAG_PATTERN = /<\/(?:script|style)(?=[\s/>])/gi;
 
 const JAVASCRIPT_TYPES = [
   '',
@@ -29,9 +36,26 @@ const JAVASCRIPT_TYPES = [
 ];
 const JSON_TYPES = ['application/json', 'application/ld+json'];
 
+const SYNTAX_TREE_TIMEOUT = 1000;
+
+const htmlSupport = html();
+
 interface AcornSyntaxError extends SyntaxError {
   pos?: number;
   raisedAt?: number;
+}
+
+interface TreeNode {
+  from: number;
+  to: number;
+  getChild(type: string): TreeNode | null;
+  getChildren(type: string): TreeNode[];
+}
+
+interface ScriptElement {
+  type: string;
+  from: number;
+  to: number;
 }
 
 // Matomo variables ({{PageUrl}}) are replaced at runtime, mask them with text of the same length so
@@ -40,10 +64,67 @@ function maskVariables(code: string, replacement: (length: number) => string): s
   return code.replace(VARIABLE_PATTERN, (variable) => replacement(variable.length));
 }
 
-function getScriptType(attributes: string): string {
-  const match = attributes.match(TYPE_ATTRIBUTE_PATTERN);
-  const type = match ? (match[1] ?? match[2] ?? match[3] ?? '') : '';
-  return type.trim().toLowerCase();
+// browsers close <script> and <style> elements whatever the case of the closing tag, the syntax
+// tree only with a lowercase one (same length, positions are kept)
+function lowercaseClosingTags(code: string): string {
+  return code.replace(RAW_TEXT_CLOSING_TAG_PATTERN, (tag) => tag.toLowerCase());
+}
+
+function getTypeAttribute(code: string, openTag: TreeNode): string {
+  const typeAttribute = openTag.getChildren('Attribute').find((attribute) => {
+    const name = attribute.getChild('AttributeName');
+    return name && code.slice(name.from, name.to).toLowerCase() === 'type';
+  });
+  const value = typeAttribute && (
+    typeAttribute.getChild('AttributeValue') || typeAttribute.getChild('UnquotedAttributeValue')
+  );
+  if (!value) {
+    return '';
+  }
+  return code.slice(value.from, value.to).replace(QUOTES_PATTERN, '$2').trim().toLowerCase();
+}
+
+// the closed <script> elements, with the range of their content
+function findScriptElements(code: string): ScriptElement[] {
+  const state = EditorState.create({ doc: lowercaseClosingTags(code), extensions: [htmlSupport] });
+  const tree = ensureSyntaxTree(state, code.length, SYNTAX_TREE_TIMEOUT);
+  if (!tree) {
+    return [];
+  }
+
+  const scripts: ScriptElement[] = [];
+  tree.iterate({
+    enter: (nodeRef) => {
+      if (nodeRef.name !== 'Element') {
+        return undefined;
+      }
+      const element: TreeNode = nodeRef.node;
+      const openTag = element.getChild('OpenTag');
+      const tagName = openTag && openTag.getChild('TagName');
+      if (!openTag || !tagName) {
+        return undefined;
+      }
+
+      const name = code.slice(tagName.from, tagName.to).toLowerCase();
+      if (name !== 'script' && name !== 'style') {
+        return undefined;
+      }
+
+      const closeTag = element.getChild('CloseTag');
+      if (name === 'script' && closeTag) {
+        scripts.push({
+          type: getTypeAttribute(code, openTag),
+          from: openTag.to,
+          to: closeTag.from,
+        });
+      }
+
+      // the content is raw text (or a nested JavaScript / CSS tree), it holds no element
+      return false;
+    },
+  });
+
+  return scripts;
 }
 
 function makeDiagnostic(from: number, to: number, message: string): Diagnostic {
@@ -99,28 +180,23 @@ function lintJson(code: string, offset: number): Diagnostic | null {
   }
 }
 
-export function lintScripts(html: string): Diagnostic[] {
+export function lintScripts(source: string): Diagnostic[] {
   const diagnostics: Diagnostic[] = [];
 
-  SCRIPT_PATTERN.lastIndex = 0;
-  let match = SCRIPT_PATTERN.exec(html);
-  while (match) {
-    const [whole, attributes, code] = match;
-    const codeOffset = match.index + whole.indexOf('>') + 1;
-    const type = getScriptType(attributes);
+  findScriptElements(source).forEach(({ type, from, to }) => {
+    const code = source.slice(from, to);
 
     let diagnostic: Diagnostic | null = null;
     if (JAVASCRIPT_TYPES.includes(type)) {
-      diagnostic = lintJavaScript(code, codeOffset, type === 'module');
+      diagnostic = lintJavaScript(code, from, type === 'module');
     } else if (JSON_TYPES.includes(type)) {
-      diagnostic = lintJson(code, codeOffset);
+      diagnostic = lintJson(code, from);
     }
 
     if (diagnostic) {
       diagnostics.push(diagnostic);
     }
-    match = SCRIPT_PATTERN.exec(html);
-  }
+  });
 
   return diagnostics;
 }

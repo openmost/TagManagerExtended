@@ -8,10 +8,12 @@
 import { basicSetup, EditorView } from 'codemirror';
 import { EditorState } from '@codemirror/state';
 import { tooltips } from '@codemirror/view';
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
 import { html } from '@codemirror/lang-html';
 import { Diagnostic, lintGutter, openLintPanel } from '@codemirror/lint';
-import { oneDark } from '@codemirror/theme-one-dark';
+import { tags } from '@lezer/highlight';
 import { translate } from 'CoreHome';
+import { createCodeTheme } from '../codeTheme';
 import { createScriptLinter } from './scriptLinter';
 
 // Replaces the Custom HTML textarea (rendered by the core Tag Manager Vue form) with a CodeMirror
@@ -74,7 +76,9 @@ function attachEditor(textarea: HTMLTextAreaElement) {
       extensions: [
         basicSetup,
         html(),
-        oneDark,
+        createCodeTheme({
+          EditorView, HighlightStyle, syntaxHighlighting, tags,
+        }),
         createScriptLinter(updateStatus),
         lintGutter(),
         // the editor clips its overflow (rounded corners): render lint and autocomplete tooltips

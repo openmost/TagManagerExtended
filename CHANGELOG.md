@@ -1,5 +1,15 @@
 ## Changelog
 
+## v6.1.0
+
+### Improvements
+
+- The Custom HTML code editor uses a light and dark palette that follows the Matomo theme.
+- More reliable JavaScript validation: `<script>` blocks are located with the HTML syntax tree, tags inside comments or strings are ignored.
+- Interface translated into 12 languages.
+- Help texts added for 29 tag and variable templates (shown on the template icon) and for the Google Ads conversion and Microsoft Clarity fields, in all 12 languages.
+- Shorter Marketplace description that fits the plugin cards, and campaign parameters on the Openmost links of the README.
+
 ## v6.0.1
 
 ### Improvements
@@ -41,26 +51,26 @@ Eleven new tag templates for the major advertising and marketing platforms. Each
 
 **[Social]**
 
-- **Meta Pixel** — loads the pixel, `PageView` + the 17 standard events + custom events (`trackCustom`), with optional `eventID` for Conversions API (CAPI) deduplication.
-- **TikTok Pixel** — `ttq.load`/`ttq.page` + current standard events (Purchase, AddToCart, CompleteRegistration…) + custom events, with optional `event_id` (Events API deduplication).
-- **Pinterest Tag** — `pintrk` load/page + conversion events + custom events, with optional `event_id` (sent inside the event data, as required by Pinterest).
-- **Snapchat Pixel** — `snaptr` init (with optional advanced-matching email) + standard events + the official `CUSTOM_EVENT_1…5` slots.
-- **X (Twitter) Pixel** — current `twq('config')` + `twq('event', <event id>)` API (base page tracking handled automatically by config).
-- **Reddit Pixel** — `rdt` init + standard events + custom events (`Custom` with `customEventName`).
+- **Meta Pixel**, loads the pixel, `PageView` + the 17 standard events + custom events (`trackCustom`), with optional `eventID` for Conversions API (CAPI) deduplication.
+- **TikTok Pixel**, `ttq.load`/`ttq.page` + current standard events (Purchase, AddToCart, CompleteRegistration…) + custom events, with optional `event_id` (Events API deduplication).
+- **Pinterest Tag**, `pintrk` load/page + conversion events + custom events, with optional `event_id` (sent inside the event data, as required by Pinterest).
+- **Snapchat Pixel**, `snaptr` init (with optional advanced-matching email) + standard events + the official `CUSTOM_EVENT_1…5` slots.
+- **X (Twitter) Pixel**, current `twq('config')` + `twq('event', <event id>)` API (base page tracking handled automatically by config).
+- **Reddit Pixel**, `rdt` init + standard events + custom events (`Custom` with `customEventName`).
 
 **[Ads]**
 
-- **Microsoft Ads : Conversion** — pushes a UET conversion event (action, category, label, event value, revenue value, currency, custom parameters). Requires the base Microsoft Advertising (Bing UET) tag.
-- **LinkedIn Ads : Conversion** — fires a LinkedIn conversion (`lintrk('track', { conversion_id })`), with optional loading of the Insight Tag when the partner ID is provided.
+- **Microsoft Ads : Conversion**, pushes a UET conversion event (action, category, label, event value, revenue value, currency, custom parameters). Requires the base Microsoft Advertising (Bing UET) tag.
+- **LinkedIn Ads : Conversion**, fires a LinkedIn conversion (`lintrk('track', { conversion_id })`), with optional loading of the Insight Tag when the partner ID is provided.
 
 **[Remarketing]**
 
-- **Criteo OneTag** — dynamic loader + `viewHome`/`viewList`/`viewItem`/`viewBasket`/`trackTransaction` events, with optional email matching.
-- **Crisp** — loads the Crisp live chat / chatbot widget, with optional visitor email and name pre-fill.
+- **Criteo OneTag**, dynamic loader + `viewHome`/`viewList`/`viewItem`/`viewBasket`/`trackTransaction` events, with optional email matching.
+- **Crisp**, loads the Crisp live chat / chatbot widget, with optional visitor email and name pre-fill.
 
 **[Others]**
 
-- **HubSpot** — loads the HubSpot tracking code (NA/EU data centre), with optional visitor identification by email and custom behavioral events.
+- **HubSpot**, loads the HubSpot tracking code (NA/EU data centre), with optional visitor identification by email and custom behavioral events.
 
 All new tags integrate with Matomo variables (`{{...}}`) on every field and are fully translated in English and French.
 

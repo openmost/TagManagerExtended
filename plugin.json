@@ -1,39 +1,42 @@
 {
     "name": "TagManagerExtended",
-    "description": "More tags, triggers and variables for the Tag Manager, plus a Custom HTML code editor with syntax highlighting and JavaScript validation",
-    "version": "6.0.1",
+    "description": "35 tag templates, more triggers and variables, bulk actions and a Custom HTML editor for Tag Manager.",
+    "version": "6.1.0",
     "theme": false,
     "require": {
-      "matomo": ">=6.0.0-b1,<7.0.0-b1"
+        "matomo": ">=6.0.0-b1,<7.0.0-b1"
     },
     "authors": [
         {
             "name": "Openmost",
             "email": "ronan@openmost.com",
-            "homepage": "https:\/\/openmost.com"
+            "homepage": "https://openmost.com"
         }
     ],
     "support": {
         "email": "ronan@openmost.com",
-        "issues": "https:\/\/github.com\/openmost\/TagManagerExtended\/issues",
-        "source": "https:\/\/github.com\/openmost\/TagManagerExtended"
+        "issues": "https://github.com/openmost/TagManagerExtended/issues",
+        "source": "https://github.com/openmost/TagManagerExtended"
     },
-    "homepage": "https:\/\/openmost.com\/matomo\/extensions\/tag-manager-extended",
+    "homepage": "https://openmost.com/matomo/extensions/tag-manager-extended",
+    "preview": {
+        "video_url": "https://www.youtube-nocookie.com/embed/ABLd8Zyjt1M"
+    },
     "license": "GPL v3+",
     "keywords": [
-        "Tag",
-        "Manager",
-        "Extended",
-        "TagManager",
-        "Tags",
-        "Enhance",
-        "Consent",
-        "Mode",
-        "CMP",
-        "Custom HTML",
-        "Code editor",
-        "Syntax highlighting",
-        "JavaScript validator"
+        "tag",
+        "manager",
+        "extended",
+        "tagmanager",
+        "tags",
+        "enhance",
+        "consent",
+        "mode",
+        "cmp",
+        "custom-html",
+        "code-editor",
+        "syntax-highlighting",
+        "javascript-validator"
     ],
     "category": "insights"
 }

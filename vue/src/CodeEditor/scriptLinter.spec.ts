@@ -63,6 +63,26 @@ describe('lintScripts', () => {
     expect(diagnostic.message).toContain('TagManagerExtended_JsonSyntaxError');
   });
 
+  it('only checks real script elements', () => {
+    expect(lintScripts('<!-- <script> -->\n<script>var a = 1;</script>')).toEqual([]);
+    expect(lintScripts('<!-- disabled: <script>old(</script> -->')).toEqual([]);
+    expect(lintScripts('<style>.a::after { content: "<script>"; }</style><script>ok();</script>')).toEqual([]);
+  });
+
+  it('reads the script content after an opening tag containing ">"', () => {
+    expect(lintScripts('<script src="a.js" onload="if (a > b) run()">var ok = 1;</script>')).toEqual([]);
+
+    const html = '<script data-a="x>y">var a = ;</script>';
+    const [diagnostic] = lintScripts(html);
+    expect(html.substring(diagnostic.from, diagnostic.from + 1)).toBe(';');
+  });
+
+  it('reads the type attribute only, whatever the case of the tags', () => {
+    expect(lintScripts('<script data-type="text/plain">var a = ;</script>')).toHaveLength(1);
+    expect(lintScripts('<SCRIPT TYPE=text/template>{{ not js </SCRIPT>')).toEqual([]);
+    expect(lintScripts('<SCRIPT>var a = ;</SCRIPT>')).toHaveLength(1);
+  });
+
   it('ignores non JavaScript script types', () => {
     expect(lintScripts('<script type="text/template"><div>{{ broken( </div></script>')).toEqual([]);
   });
