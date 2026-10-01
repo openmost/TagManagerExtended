@@ -1,69 +1,86 @@
 # Matomo TagManagerExtended Plugin
 
-## Description
+Extend the Matomo Tag Manager with 35 ready-to-use tag templates, extra triggers and variables, bulk actions and a Custom HTML code editor with syntax validation.
 
-**Supercharge the Matomo Tag Manager.** TagManagerExtended turns Matomo's built-in Tag Manager into a complete marketing toolbox — deploy the pixels, triggers and variables you actually use every day in seconds, without writing a single line of custom HTML.
+## Features
 
-Stop copy-pasting fragile snippets. Stop juggling Google Tag Manager just for one pixel. Everything your marketing, ads and analytics stack needs is now one click away, **privacy-friendly and self-hosted inside Matomo**.
+### Tag templates
 
-### 🚀 Every marketing & ads pixel, ready in seconds
+Each advertising and social pixel is a complete tag: it loads the base library, initialises the pixel and sends the selected event (page view by default, standard conversion events or a custom event). Where the platform supports it, an event ID can be sent for server-side (Conversions API) deduplication. Every field accepts Matomo variables (`{{...}}`). Each tag and variable template comes with a help text explaining what it does and how to set it up, in the 12 languages of the interface.
 
-The big advertising and marketing platforms, as **complete, plug-and-play tags**. Each one loads the base pixel, fires the page view, and lets you send standard conversion events (or your own custom events) — with `event_id` support for **Conversions API (server-side) deduplication** where the platform allows it.
+- **Ads**: Google Ads : Conversion, LinkedIn Ads : Conversion, Microsoft Ads : Conversion
+- **Social**: Meta Pixel, TikTok Pixel, Pinterest Tag, Snapchat Pixel, X (Twitter) Pixel, Reddit Pixel
+- **Analytics**: Google Tag (gtag.js), Google Analytics 4 : Event, Google User-Provided Data, Matomo Analytics : Ecommerce, Matomo Analytics : Search, Hotjar, Microsoft Clarity, Simple Analytics, ListenLayer
+- **Consent management**: Google Consent Mode (v2), Microsoft Consent Mode, Axeptio (with Google Consent Mode v2 support), Cookiebot, CookieYes, OneTrust
+- **Remarketing and support**: Criteo OneTag, Crisp, Intercom
+- **Email**: Brevo, Klaviyo
+- **Affiliates**: Affilae
+- **Others**: HubSpot, Slack, Alert, Console, DataLayer Synchronisation (deprecated since Matomo 5.2)
 
-#### Advertising & social pixels
-- **Meta Pixel** (Facebook / Instagram) — PageView, the 17 standard events, and custom events
-- **TikTok Pixel** — full set of current standard events + event deduplication
-- **Pinterest Tag** — conversions, checkout, sign-up and more
-- **Snapchat Pixel** — standard events + advanced matching
-- **X (Twitter) Pixel** — current `config` / `event` API
-- **Reddit Pixel** — standard and custom conversion events
-- **LinkedIn Ads : Conversion** — B2B conversion tracking
-- **Microsoft Ads : Conversion** — UET conversions & revenue
-- **Criteo OneTag** — retargeting & e-commerce events
+When a template replaces a built-in Tag Manager template (Google Tag, Google Ads, Google Analytics 4 event, Google Consent Mode, Hotjar and some consent platforms), the built-in one is hidden so only one version is listed.
 
-#### Marketing, CRM & support
-- **HubSpot** — tracking code, contact identification & behavioral events
-- **Crisp** — live chat & chatbot widget
-- Plus **Klaviyo**, **Brevo**, **Intercom**, **Hotjar**, **Microsoft Clarity** and more
+### Triggers
 
-#### Google, made easy
-- **Google Tag (gtag.js)**, **Google Analytics 4 : Event**, **Google Ads : Conversion**
-- **Google Consent Mode v2**, **Google User-Provided Data**
-- **Microsoft Consent Mode**
+- **Custom Event**, with regular expression matching
+- **Custom Event Group**: fires only when all the required events have occurred
+- **Form Input**: fires when a form field changes (input, select, checkbox, radio, textarea)
 
-#### Consent Management (CMP)
-- **Axeptio** (Google Consent Mode v2), **Cookiebot**, **CookieYes**, **OneTrust**
+### Variables
 
-### ⚡ Work faster with Bulk Actions
-Manage your container at scale — no more clicking through items one by one:
-- **Select multiple** tags, triggers or variables at once
-- **Bulk delete** in a single action
-- **Bulk pause / resume** for tags
-- Available to anyone with write access to the container
+- **LocalStorage** and **SessionStorage** values
+- **Date** with a custom format
+- **Click data-attribute**: any `data-*` attribute of the clicked element
+- **Form Input** values: Value, Name, ID, Type, Element, Checked, Classes, Selected Text
 
-### 🎯 Smarter triggers
-- **Custom Event** — enhanced with **regular expression** matching
-- **Custom Event Group** — fires only when **all** required events have occurred
-- **Form Input** — react to any form field change (input, select, checkbox, radio, textarea)
+### Custom HTML code editor
 
-### 🧩 More variables
-- **LocalStorage / SessionStorage** — read any browser storage value
-- **Date** — custom date formatting with PHP-style tokens
-- **Click data-attribute** — grab any `data-*` attribute from a click
-- **Form Input** family — Value, Name, ID, Type, Element, Checked, Classes, Selected Text
+The Custom HTML tag gets a code editor:
 
-### ✅ Built to be trusted
-- Every pixel snippet and event API is **verified against the platform's official documentation**
-- Use **Matomo variables (`{{...}}`)** in every field — fully dynamic
-- **Bilingual** out of the box: English & French
-- 100% **self-hosted** in your Matomo — no third-party tag manager, no data leaks
+- HTML, JavaScript and CSS syntax highlighting, in a light or dark palette that follows the Matomo theme, with line numbers, auto-indentation, auto-closing tags and autocompletion
+- Live validation of the JavaScript and JSON-LD (`<script type="application/ld+json">`) blocks: errors are underlined as you type, and a "Valid syntax" / "Code may contain errors" indicator lists them
+- Matomo variables (`{{...}}`) are supported by the validator and the variable picker still inserts them at the cursor position
+- The validator never blocks saving
 
-### 📦 35+ tags and growing
-A constantly expanding library so your team can deploy new solutions in minutes instead of days. Missing a platform? Tell us — new tags ship regularly.
+### Bulk actions
 
-### Get started
-1. Install from the **Matomo Marketplace** (as a super user), or upload the plugin to your `/plugins` folder via FTP.
-2. Enable it under **Settings → Plugins**.
-3. Open the **Tag Manager** and enjoy your new tags, triggers and variables.
+- Select several tags, triggers or variables in a container
+- Delete them in one action, or pause and resume several tags at once
+- Available to every user with write access to the container
 
-**The full list of tags, triggers and variables is available in the documentation.**
+### Safer lists
+
+Tags, triggers and variables whose type is no longer available (for example after a plugin was removed) are shown as "Unavailable type (...)" instead of breaking the Tag Manager list, so they can be edited or deleted.
+
+This protection only works while TagManagerExtended is active. Before you deactivate or uninstall it, delete the tags, triggers and variables created from its templates: Matomo Tag Manager cannot display an entity whose template is not available, its list then stays on "Loading data".
+
+The interface is translated into 12 languages.
+
+## Requirements
+
+- Matomo 5.10.0 or higher, below 6.0.0
+- The Matomo **TagManager** plugin, activated
+
+## Installation / Configuration
+
+1. Install and activate the plugin from the Matomo Marketplace (**Administration > Platform > Marketplace**).
+2. Open **Tag Manager** for a website: the new templates are listed when you create a tag, trigger or variable, and the bulk actions are available on the tags, triggers and variables lists.
+
+There is nothing else to configure. The plugin is available to every Tag Manager user of the instance.
+
+## Privacy and data
+
+The plugin does not send any data by itself. The tags you publish load the scripts of the third-party platforms you choose (Meta, TikTok, Google, LinkedIn...) in your visitors' browsers, and those platforms receive the data you configure in each tag. Use a consent management tag and triggers to respect your visitors' consent.
+
+## Need help with Matomo?
+
+Openmost is an official Matomo Implementation Partner. We design [Matomo tracking plans](https://openmost.com/matomo/services/tracking-architecture?utm_source=matomo_marketplace&utm_medium=referral&utm_campaign=services&utm_content=tagmanagerextended) and implement them in Matomo Tag Manager, with tags, triggers, variables and a data layer where needed, documented so your team can maintain them.
+
+## Support
+
+- Documentation: https://openmost.com/matomo/extensions/tag-manager-extended
+- Email: ronan@openmost.com
+- Issues: https://github.com/openmost/TagManagerExtended/issues
+
+## Screenshots
+
+See the `screenshots/` folder for the tag, trigger and variable templates, the bulk actions and the Custom HTML code editor.

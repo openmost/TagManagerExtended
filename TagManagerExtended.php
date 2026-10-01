@@ -13,6 +13,9 @@ class TagManagerExtended extends \Piwik\Plugin
     public function registerEvents()
     {
         return array(
+            'Template.afterEventsReport' => 'renderOpenmostCommunicationAfterEvents',
+            'Widget.filterWidgets' => 'addOpenmostCommunicationWidgets',
+            'Template.beforeContent' => 'renderOpenmostCommunication',
             'AssetManager.getStylesheetFiles' => 'getStylesheetFiles',
             'AssetManager.getJavaScriptFiles' => 'getJavaScriptFiles',
             'TagManager.filterTags' => 'filterTags',
@@ -100,6 +103,10 @@ class TagManagerExtended extends \Piwik\Plugin
         $translationKeys[] = 'TagManagerExtended_ConfirmBulkResume';
         $translationKeys[] = 'TagManagerExtended_BulkSuccess';
         $translationKeys[] = 'TagManagerExtended_BulkPartialSuccess';
+        $translationKeys[] = 'TagManagerExtended_JavaScriptSyntaxError';
+        $translationKeys[] = 'TagManagerExtended_JsonSyntaxError';
+        $translationKeys[] = 'TagManagerExtended_SyntaxValid';
+        $translationKeys[] = 'TagManagerExtended_SyntaxMayContainErrors';
     }
 
     public function getStylesheetFiles(&$files)
@@ -110,6 +117,14 @@ class TagManagerExtended extends \Piwik\Plugin
     public function getJavaScriptFiles(&$files)
     {
         $files[] = "plugins/TagManagerExtended/javascripts/script.js";
+        // Loads the Vue UMD (code editor) on Tag Manager pages only
+        $files[] = "plugins/TagManagerExtended/javascripts/loader.js";
+    }
+
+    public function shouldLoadUmdOnDemand()
+    {
+        // The UMD bundles the code editor, keep it out of the global Matomo assets
+        return true;
     }
 
     public function filterTags(&$tags)
@@ -168,5 +183,20 @@ class TagManagerExtended extends \Piwik\Plugin
         }
 
         return $pluginName === 'TagManager';
+    }
+
+    public function renderOpenmostCommunication(&$out, $layout, $module = '', $action = '')
+    {
+        OpenmostCommunication::beforeContent($out, (string) $layout, (string) $module, (string) $action, $this->getPluginName());
+    }
+
+    public function addOpenmostCommunicationWidgets($list)
+    {
+        OpenmostCommunication::filterWidgets($list, $this->getPluginName());
+    }
+
+    public function renderOpenmostCommunicationAfterEvents(&$out, $dataTable = null)
+    {
+        OpenmostCommunication::afterEventsReport($out, $this->getPluginName());
     }
 }

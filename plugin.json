@@ -1,7 +1,7 @@
 {
     "name": "TagManagerExtended",
-    "description": "Adds several useful tags, triggers and variables to the Tag Manager",
-    "version": "5.7.1",
+    "description": "35 tag templates, more triggers and variables, bulk actions and a Custom HTML editor for Tag Manager.",
+    "version": "5.8.0",
     "theme": false,
     "require": {
         "matomo": ">=5.10.0,<6.0.0-b1"
@@ -10,26 +10,29 @@
         {
             "name": "Openmost",
             "email": "ronan@openmost.com",
-            "homepage": "https:\/\/openmost.com"
+            "homepage": "https://openmost.com"
         }
     ],
     "support": {
         "email": "ronan@openmost.com",
-        "issues": "https:\/\/github.com\/openmost\/TagManagerExtended\/issues",
-        "source": "https:\/\/github.com\/openmost\/TagManagerExtended"
+        "issues": "https://github.com/openmost/TagManagerExtended/issues",
+        "source": "https://github.com/openmost/TagManagerExtended"
     },
-    "homepage": "https:\/\/openmost.io\/products\/tag-manager-extended\/",
+    "homepage": "https://openmost.com/matomo/extensions/tag-manager-extended",
+    "preview": {
+        "video_url": "https://www.youtube-nocookie.com/embed/ABLd8Zyjt1M"
+    },
     "license": "GPL v3+",
     "keywords": [
-        "Tag",
-        "Manager",
-        "Extended",
-        "TagManager",
-        "Tags",
-        "Enhance",
-        "Consent",
-        "Mode",
-        "CMP"
+        "tag",
+        "manager",
+        "extended",
+        "tagmanager",
+        "tags",
+        "enhance",
+        "consent",
+        "mode",
+        "cmp"
     ],
     "category": "insights"
 }

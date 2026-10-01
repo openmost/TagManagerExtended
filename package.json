@@ -1,5 +1,7 @@
 {
+  "name": "tag-manager-extended",
   "private": true,
+  "description": "Build dependencies of the TagManagerExtended assets (bulk actions script, code editor Vue library)",
   "scripts": {
     "dev": "npm run development",
     "development": "mix",
@@ -9,7 +11,25 @@
     "prod": "npm run production",
     "production": "mix --production"
   },
+  "dependencies": {
+    "@codemirror/lang-html": "^6.4.12",
+    "@codemirror/language": "^6.12.4",
+    "@codemirror/lint": "^6.9.7",
+    "@codemirror/state": "^6.7.5",
+    "@codemirror/view": "^6.43.12",
+    "@lezer/highlight": "^1.2.3",
+    "acorn": "^8.18.0",
+    "codemirror": "^6.0.2"
+  },
   "devDependencies": {
     "laravel-mix": "^6.0.49"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    }
   }
 }
