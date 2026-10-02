@@ -15,6 +15,10 @@
 - The code editor is built with the Matomo Vite build (`vue/`) and only loaded on Tag Manager pages.
 - Shorter Marketplace description that fits the plugin cards, and campaign parameters on the Openmost links of the README.
 
+### Compatibility
+
+- Requires Matomo 5.2.0 or higher instead of 5.10.0: every Matomo theme variable used by the plugin keeps the light theme value of Matomo as a fallback, and 5.2 is the first release whose Tag Manager can pause tags, which the bulk Pause and Resume actions use.
+
 ## v5.7.1
 
 ### Improvements

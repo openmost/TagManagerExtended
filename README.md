@@ -57,7 +57,7 @@ The interface is translated into 12 languages.
 
 ## Requirements
 
-- Matomo 5.10.0 or higher, below 6.0.0
+- Matomo 5.2.0 or higher, below 6.0.0 (the bulk Pause and Resume actions use the tag pausing of the Tag Manager bundled since Matomo 5.2)
 - The Matomo **TagManager** plugin, activated
 
 ## Installation / Configuration

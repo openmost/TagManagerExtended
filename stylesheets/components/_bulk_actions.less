@@ -7,8 +7,8 @@
     flex-wrap: wrap;
     gap: 1rem;
     padding: .75rem 1rem;
-    background: var(--theme-color-background-contrast);
-    border: 1px solid var(--theme-color-border);
+    background: var(--theme-color-background-contrast, #fff);
+    border: 1px solid var(--theme-color-border, #cccccc);
   }
 
   .tme-bulk-select-controls {
@@ -39,20 +39,20 @@
   button.tme-bulk-btn {
     padding: 0 1rem;
     box-shadow: none !important;
-    background-color: var(--theme-color-background-tinyContrast) !important;
-    color: var(--theme-color-text) !important;
-    border: 1px solid var(--theme-color-border) !important;
+    background-color: var(--theme-color-background-tinyContrast, #f2f2f2) !important;
+    color: var(--theme-color-text, #212121) !important;
+    border: 1px solid var(--theme-color-border, #cccccc) !important;
 
     &:hover:not(:disabled) {
-      background-color: var(--theme-color-background) !important;
-      color: var(--theme-color-text) !important;
-      border-color: var(--theme-color-border) !important;
+      background-color: var(--theme-color-background-base, #f5f5f5) !important;
+      color: var(--theme-color-text, #212121) !important;
+      border-color: var(--theme-color-border, #cccccc) !important;
     }
 
     &:disabled {
-      background-color: var(--theme-color-background-disabled) !important;
-      color: var(--theme-color-text) !important;
-      border-color: var(--theme-color-border) !important;
+      background-color: var(--theme-color-background-disabled, #d9d9d9) !important;
+      color: var(--theme-color-text, #212121) !important;
+      border-color: var(--theme-color-border, #cccccc) !important;
     }
 
     .icon-delete,
