@@ -9,6 +9,7 @@
 - Interface translated into 12 languages.
 - Help texts added for 29 tag and variable templates (shown on the template icon) and for the Google Ads conversion and Microsoft Clarity fields, in all 12 languages.
 - The package no longer ships the Laravel Mix manifest (mix-manifest.json), which Matomo does not use.
+- The hover background of the bulk action buttons was transparent, it now uses the Matomo theme background.
 
 ### Technical
 
