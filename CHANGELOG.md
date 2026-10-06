@@ -19,6 +19,7 @@
 ### Compatibility
 
 - Requires Matomo 5.2.0 or higher instead of 5.10.0: every Matomo theme variable used by the plugin keeps the light theme value of Matomo as a fallback, and 5.2 is the first release whose Tag Manager can pause tags, which the bulk Pause and Resume actions use.
+- README: the plugin description now shows in the Description tab of the Matomo Marketplace.
 
 ## v5.7.1
 
