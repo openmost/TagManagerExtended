@@ -10,6 +10,7 @@
 - Help texts added for 29 tag and variable templates (shown on the template icon) and for the Google Ads conversion and Microsoft Clarity fields, in all 12 languages.
 - Shorter Marketplace description that fits the plugin cards, and campaign parameters on the Openmost links of the README.
 - The hover background of the bulk action buttons was transparent, it now uses the Matomo theme background, with the light theme colour as a fallback.
+- README: the plugin description now shows in the Description tab of the Matomo Marketplace.
 
 ## v6.0.1
 
