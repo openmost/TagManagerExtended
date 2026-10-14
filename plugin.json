@@ -1,6 +1,6 @@
 {
     "name": "TagManagerExtended",
-    "description": "35 tag templates, more triggers and variables, bulk actions and a Custom HTML editor for Tag Manager.",
+    "description": "36 tag templates, more triggers and variables, bulk actions and a Custom HTML editor for Tag Manager.",
     "version": "5.8.0",
     "theme": false,
     "require": {

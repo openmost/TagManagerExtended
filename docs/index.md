@@ -33,6 +33,7 @@ On the tags, triggers and variables lists, select several items to delete them i
 
 **[Ads]**
 
+- ChatGPT Ads Pixel
 - Google Ads : Conversion
 - LinkedIn Ads : Conversion
 - Microsoft Ads : Conversion

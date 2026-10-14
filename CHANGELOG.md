@@ -4,6 +4,7 @@
 
 ### Improvements
 
+- New **ChatGPT Ads Pixel** tag (OpenAI Ads Measurement Pixel): `oaiq` init, page views and every standard conversion event (`contents_viewed`, `items_added`, `checkout_started`, `order_created`, `lead_created`, `registration_completed`, `appointment_scheduled`, `subscription_created`, `trial_started`) plus custom events. Amount and currency with automatic conversion to the smallest currency unit, contents from a single item or a GA4 / Matomo ecommerce items variable, plan ID, event ID for Conversions API deduplication, personalisation opt-out, consent (fixed or from a variable), advanced matching with in-browser SHA-256 hashing, and debug mode.
 - The Custom HTML tag now has a code editor with HTML, JavaScript and CSS syntax highlighting, line numbers and auto-closing tags, in a light and dark palette that follows the Matomo theme. The variable picker still inserts at the cursor position.
 - Syntax errors in the `<script>` blocks of Custom HTML tags (JavaScript and JSON-LD) are highlighted while typing. Matomo variables (`{{...}}`) are supported, saving is not blocked.
 - Interface translated into 12 languages.

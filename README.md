@@ -2,7 +2,7 @@
 
 ## Description
 
-Extend the Matomo Tag Manager with 35 ready-to-use tag templates, extra triggers and variables, bulk actions and a Custom HTML code editor with syntax validation.
+Extend the Matomo Tag Manager with 36 ready-to-use tag templates, extra triggers and variables, bulk actions and a Custom HTML code editor with syntax validation.
 
 ### Features
 
@@ -10,7 +10,7 @@ Extend the Matomo Tag Manager with 35 ready-to-use tag templates, extra triggers
 
 Each advertising and social pixel is a complete tag: it loads the base library, initialises the pixel and sends the selected event (page view by default, standard conversion events or a custom event). Where the platform supports it, an event ID can be sent for server-side (Conversions API) deduplication. Every field accepts Matomo variables (`{{...}}`). Each tag and variable template comes with a help text explaining what it does and how to set it up, in the 12 languages of the interface.
 
-- **Ads**: Google Ads : Conversion, LinkedIn Ads : Conversion, Microsoft Ads : Conversion
+- **Ads**: ChatGPT Ads Pixel (OpenAI), Google Ads : Conversion, LinkedIn Ads : Conversion, Microsoft Ads : Conversion
 - **Social**: Meta Pixel, TikTok Pixel, Pinterest Tag, Snapchat Pixel, X (Twitter) Pixel, Reddit Pixel
 - **Analytics**: Google Tag (gtag.js), Google Analytics 4 : Event, Google User-Provided Data, Matomo Analytics : Ecommerce, Matomo Analytics : Search, Hotjar, Microsoft Clarity, Simple Analytics, ListenLayer
 - **Consent management**: Google Consent Mode (v2), Microsoft Consent Mode, Axeptio (with Google Consent Mode v2 support), Cookiebot, CookieYes, OneTrust
