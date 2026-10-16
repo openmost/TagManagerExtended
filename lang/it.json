@@ -179,7 +179,7 @@
         "ChatGPTAdsPixelOptOutTitle": "Escludi dalla personalizzazione",
         "ChatGPTAdsPixelOptOutDescription": "Esclude questo evento dalla futura personalizzazione degli annunci a livello di utente. La conversione viene comunque misurata.",
         "ChatGPTAdsPixelConsentModeTitle": "Consenso",
-        "ChatGPTAdsPixelConsentModeDescription": "Il consenso alla misurazione inviato prima dell'inizializzazione del pixel. Quando il consenso è negato, nessun evento viene inviato, gli eventi bloccati non vengono reinviati in seguito e i cookie del pixel vengono rimossi.",
+        "ChatGPTAdsPixelConsentModeDescription": "Il consenso alla misurazione inviato prima dell'inizializzazione del pixel. Quando il consenso è negato, lo script del pixel non viene caricato e nessun evento viene inviato. Se il pixel era già caricato nella pagina, il rifiuto gli viene trasmesso e i suoi cookie vengono rimossi. Gli eventi bloccati non vengono reinviati in seguito.",
         "ChatGPTAdsPixelConsentModeDefault": "Non impostato (predefinito del pixel, concesso salvo un rifiuto memorizzato)",
         "ChatGPTAdsPixelConsentModeGranted": "Concesso",
         "ChatGPTAdsPixelConsentModeDenied": "Negato",

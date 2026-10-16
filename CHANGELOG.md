@@ -1,5 +1,11 @@
 ## Changelog
 
+## v6.1.1
+
+### Privacy
+
+- ChatGPT Ads Pixel: when consent is denied (fixed setting or from a variable), the OpenAI pixel script is no longer loaded, so no request reaches the OpenAI CDN. If the pixel was already loaded on the page, the denial is still forwarded so it removes its cookies. The consent help text is updated in all 12 languages.
+
 ## v6.1.0
 
 ### Improvements

@@ -236,6 +236,26 @@
         return;
       }
 
+      var consentMode = parameters.get('consentMode');
+      var consent;
+      if (consentMode === 'granted') {
+        consent = true;
+      } else if (consentMode === 'denied') {
+        consent = false;
+      } else if (consentMode === 'variable') {
+        consent = isTruthy(parameters.get('consentValue'));
+      }
+
+      // A denial must not even reach the OpenAI CDN. If the pixel was loaded
+      // earlier, forward the revocation so it drops its cookies.
+      if (consent === false) {
+        if (window.oaiq) {
+          oaiq('consent', false);
+        }
+        log('Consent denied, the pixel was not loaded and no event was sent.');
+        return;
+      }
+
       // Load the ChatGPT Ads Measurement Pixel loader stub once.
       if (!window.oaiq) {
         !function (w, d, s, u) {
@@ -249,14 +269,9 @@
         }(window, document, 'script', 'https://bzrcdn.openai.com/sdk/oaiq.min.js');
       }
 
-      // Consent must be set before init so a denial blocks every ping.
-      var consentMode = parameters.get('consentMode');
-      if (consentMode === 'granted') {
+      // Consent must be set before init.
+      if (consent === true) {
         oaiq('consent', true);
-      } else if (consentMode === 'denied') {
-        oaiq('consent', false);
-      } else if (consentMode === 'variable') {
-        oaiq('consent', isTruthy(parameters.get('consentValue')));
       }
 
       if (!initialised[pixelId]) {

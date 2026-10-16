@@ -179,7 +179,7 @@
         "ChatGPTAdsPixelOptOutTitle": "Rezygnacja z personalizacji",
         "ChatGPTAdsPixelOptOutDescription": "Wyklucza to zdarzenie z przyszłej personalizacji reklam na poziomie użytkownika. Konwersja jest nadal mierzona.",
         "ChatGPTAdsPixelConsentModeTitle": "Zgoda",
-        "ChatGPTAdsPixelConsentModeDescription": "Zgoda na pomiar wysyłana przed inicjalizacją piksela. Gdy zgoda zostanie odrzucona, żadne zdarzenie nie jest wysyłane, zablokowane zdarzenia nie są później ponownie wysyłane, a pliki cookie piksela są usuwane.",
+        "ChatGPTAdsPixelConsentModeDescription": "Zgoda na pomiar wysyłana przed inicjalizacją piksela. Gdy zgoda zostanie odrzucona, skrypt piksela nie jest ładowany i żadne zdarzenie nie jest wysyłane. Jeśli piksel był już załadowany na stronie, odmowa jest do niego przekazywana, a pliki cookie piksela są usuwane. Zablokowane zdarzenia nie są później ponownie wysyłane.",
         "ChatGPTAdsPixelConsentModeDefault": "Nie ustawiono (domyślnie w pikselu, udzielona, chyba że zapisano odmowę)",
         "ChatGPTAdsPixelConsentModeGranted": "Udzielona",
         "ChatGPTAdsPixelConsentModeDenied": "Odrzucona",
