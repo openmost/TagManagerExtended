@@ -179,7 +179,7 @@
         "ChatGPTAdsPixelOptOutTitle": "パーソナライズをオプトアウト",
         "ChatGPTAdsPixelOptOutDescription": "このイベントを今後のユーザー単位の広告パーソナライズから除外します。コンバージョンは引き続き測定されます。",
         "ChatGPTAdsPixelConsentModeTitle": "同意",
-        "ChatGPTAdsPixelConsentModeDescription": "ピクセルの初期化前に送信される測定の同意です。同意が拒否された場合、イベントは送信されず、ブロックされたイベントが後で再送されることもなく、ピクセルの Cookie は削除されます。",
+        "ChatGPTAdsPixelConsentModeDescription": "ピクセルの初期化前に送信される測定の同意です。同意が拒否された場合、ピクセルのスクリプトは読み込まれず、イベントも送信されません。ピクセルがすでにページに読み込まれている場合は、拒否が伝えられ、ピクセルの Cookie は削除されます。ブロックされたイベントが後で再送されることはありません。",
         "ChatGPTAdsPixelConsentModeDefault": "未設定（ピクセルのデフォルト、拒否が保存されていない限り許可）",
         "ChatGPTAdsPixelConsentModeGranted": "許可",
         "ChatGPTAdsPixelConsentModeDenied": "拒否",

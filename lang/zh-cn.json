@@ -179,7 +179,7 @@
         "ChatGPTAdsPixelOptOutTitle": "退出个性化",
         "ChatGPTAdsPixelOptOutDescription": "将此事件排除在未来的用户级广告个性化之外。转化仍会被衡量。",
         "ChatGPTAdsPixelConsentModeTitle": "同意",
-        "ChatGPTAdsPixelConsentModeDescription": "在像素初始化之前发送的衡量同意。同意被拒绝时，不发送任何事件，被拦截的事件之后也不会重新发送，并且会删除像素的 Cookie。",
+        "ChatGPTAdsPixelConsentModeDescription": "在像素初始化之前发送的衡量同意。同意被拒绝时，不会加载像素脚本，也不发送任何事件。如果像素已在页面上加载，则会向其传达拒绝，并删除像素的 Cookie。被拦截的事件之后也不会重新发送。",
         "ChatGPTAdsPixelConsentModeDefault": "未设置（像素默认值，除非已存储拒绝，否则视为已授予）",
         "ChatGPTAdsPixelConsentModeGranted": "已授予",
         "ChatGPTAdsPixelConsentModeDenied": "已拒绝",

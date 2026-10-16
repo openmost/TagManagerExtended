@@ -179,7 +179,7 @@
         "ChatGPTAdsPixelOptOutTitle": "إلغاء الاشتراك في التخصيص",
         "ChatGPTAdsPixelOptOutDescription": "يستبعد هذا الحدث من تخصيص الإعلانات المستقبلي على مستوى المستخدم. يستمر قياس التحويل.",
         "ChatGPTAdsPixelConsentModeTitle": "الموافقة",
-        "ChatGPTAdsPixelConsentModeDescription": "موافقة القياس المرسلة قبل تهيئة البكسل. عند رفض الموافقة، لا يُرسل أي حدث، ولا تُعاد الأحداث المحظورة لاحقًا، وتُحذف ملفات تعريف الارتباط الخاصة بالبكسل.",
+        "ChatGPTAdsPixelConsentModeDescription": "موافقة القياس المرسلة قبل تهيئة البكسل. عند رفض الموافقة، لا يُحمَّل سكربت البكسل ولا يُرسل أي حدث. وإذا كان البكسل محمَّلًا مسبقًا في الصفحة، يُبلَّغ بالرفض وتُحذف ملفات تعريف الارتباط الخاصة به. ولا تُعاد الأحداث المحظورة لاحقًا.",
         "ChatGPTAdsPixelConsentModeDefault": "غير محدد (الإعداد الافتراضي للبكسل، ممنوحة ما لم يُحفظ رفض)",
         "ChatGPTAdsPixelConsentModeGranted": "ممنوحة",
         "ChatGPTAdsPixelConsentModeDenied": "مرفوضة",

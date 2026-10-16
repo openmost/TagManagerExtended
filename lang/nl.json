@@ -179,7 +179,7 @@
         "ChatGPTAdsPixelOptOutTitle": "Afmelden voor personalisatie",
         "ChatGPTAdsPixelOptOutDescription": "Sluit deze gebeurtenis uit van toekomstige advertentiepersonalisatie op gebruikersniveau. De conversie wordt nog steeds gemeten.",
         "ChatGPTAdsPixelConsentModeTitle": "Toestemming",
-        "ChatGPTAdsPixelConsentModeDescription": "De meettoestemming die wordt verstuurd voordat de pixel initialiseert. Wanneer toestemming wordt geweigerd, wordt geen gebeurtenis verstuurd, worden geblokkeerde gebeurtenissen later niet opnieuw verstuurd en worden de pixelcookies verwijderd.",
+        "ChatGPTAdsPixelConsentModeDescription": "De meettoestemming die wordt verstuurd voordat de pixel initialiseert. Wanneer toestemming wordt geweigerd, wordt het pixelscript niet geladen en wordt geen gebeurtenis verstuurd. Als de pixel al op de pagina was geladen, wordt de weigering doorgegeven en worden de pixelcookies verwijderd. Geblokkeerde gebeurtenissen worden later niet opnieuw verstuurd.",
         "ChatGPTAdsPixelConsentModeDefault": "Niet ingesteld (pixelstandaard, verleend tenzij een weigering is opgeslagen)",
         "ChatGPTAdsPixelConsentModeGranted": "Verleend",
         "ChatGPTAdsPixelConsentModeDenied": "Geweigerd",

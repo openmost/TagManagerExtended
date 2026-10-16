@@ -179,7 +179,7 @@
         "ChatGPTAdsPixelOptOutTitle": "Personalisierung ablehnen",
         "ChatGPTAdsPixelOptOutDescription": "Schließt dieses Ereignis von der künftigen Anzeigenpersonalisierung auf Nutzerebene aus. Die Konversion wird weiterhin gemessen.",
         "ChatGPTAdsPixelConsentModeTitle": "Einwilligung",
-        "ChatGPTAdsPixelConsentModeDescription": "Die Messeinwilligung, die vor der Initialisierung des Pixels gesendet wird. Wird die Einwilligung verweigert, wird kein Ereignis gesendet, blockierte Ereignisse werden später nicht nachgesendet und die Pixel-Cookies werden entfernt.",
+        "ChatGPTAdsPixelConsentModeDescription": "Die Messeinwilligung, die vor der Initialisierung des Pixels gesendet wird. Wird die Einwilligung verweigert, wird das Pixel-Skript nicht geladen und kein Ereignis gesendet. War das Pixel bereits auf der Seite geladen, wird die Ablehnung weitergegeben und die Pixel-Cookies werden entfernt. Blockierte Ereignisse werden später nicht nachgesendet.",
         "ChatGPTAdsPixelConsentModeDefault": "Nicht festgelegt (Pixel-Standard, erteilt, sofern keine Ablehnung gespeichert ist)",
         "ChatGPTAdsPixelConsentModeGranted": "Erteilt",
         "ChatGPTAdsPixelConsentModeDenied": "Verweigert",

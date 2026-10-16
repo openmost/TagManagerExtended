@@ -1,7 +1,7 @@
 {
     "name": "TagManagerExtended",
     "description": "36 tag templates, more triggers and variables, bulk actions and a Custom HTML editor for Tag Manager.",
-    "version": "5.8.0",
+    "version": "5.8.1",
     "theme": false,
     "require": {
         "matomo": ">=5.2.0,<6.0.0-b1"
